@@ -32,22 +32,28 @@
                     <p>Banner</p>
                 </a>
             </li>
-            <li {{ Request::is('job') ? 'class=active' : ''}}>
+            <li {{ Request::is('job*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.job') }}">
                 <i class="material-icons">comment</i>
                 <p>Job</p>
                 </a>
             </li>
-            <li {{ Request::is('client') ? 'class=active' : ''}}>
+            <li {{ Request::is('client*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.client') }}">
                     <i class="material-icons">comment</i>
                     <p>Client</p>
                 </a>
             </li>
-            <li {{ Request::is('review') ? 'class=active' : ''}}>
+            <li {{ Request::is('review*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.review') }}">
                     <i class="material-icons">comment</i>
                     <p>Review</p>
+                </a>
+            </li>
+            <li {{ Request::is('application*') ? 'class=active' : ''}}>
+                <a href="{{ route('backend.review') }}">
+                    <i class="material-icons">comment</i>
+                    <p>Application</p>
                 </a>
             </li>
         </ul>

@@ -12,6 +12,69 @@
 */
 
 
+
+Route::get('/', [
+    'uses' => 'FrontController@getHome',
+    'as'   => 'home'
+])->name('home');
+
+Route::get('about-us', function(){
+    return view('frontend.about-us');
+})->name('about');
+
+Route::get('messages', function(){
+    return view('frontend.messages');
+})->name('messages');
+
+Route::get('clients', function(){
+    return view('frontend.clients');
+})->name('clients');
+
+Route::get('contacts', function(){
+    return view('frontend.contacts');
+})->name('contacts');
+
+Route::get('demands', function(){
+    return view('frontend.demands');
+})->name('demands');
+
+Route::get('documentation', function(){
+    return view('frontend.documentation');
+})->name('documentation');
+
+Route::get('download', function(){
+    return view('frontend.download');
+})->name('download');
+
+Route::get('hot-jobs', function(){
+    return view('frontend.hotjobs');
+})->name('hotjobs');
+
+Route::get('jobs-categories', function(){
+    return view('frontend.jobscategories');
+})->name('jobscategories');
+
+Route::get('nepal', function(){
+    return view('frontend.nepal');
+})->name('nepal');
+
+Route::get('nepalese-workers', function(){
+    return view('frontend.nepaleseworkers');
+})->name('nepaleseworkers');
+
+Route::get('selection', function(){
+    return view('frontend.selection');
+})->name('selection');
+
+Route::get('services', function(){
+    return view('frontend.services');
+})->name('services');
+
+Route::get('terms', function(){
+    return view('frontend.licenses');
+})->name('licenses');
+
+
 Route::get('login', [
     'uses' => 'UserController@getLogin',
     'as'   => 'admin.login.get'
@@ -264,7 +327,7 @@ Route::group(['prefix' => 'admin',
         'as' => 'backend.client.image'
     ]);
 
-//----------------------end of job route---------------------
+//----------------------end of client route---------------------
 
 //-----------------------Review route---------------------------
 
@@ -321,6 +384,64 @@ Route::group(['prefix' => 'admin',
 //-------------------------end of review route---------------------------------
 
 });
+
+//--------------------------application route----------------------------------
+Route::get('application', [
+    'uses' => 'ApplicationsController@getApplication',
+    'as' => 'backend.application'
+]);
+
+Route::get('application/create', [
+    'uses' => 'ApplicationsController@getCreateApplication',
+    'as' => 'backend.application.get.create'
+]);
+
+Route::post('application/create', [
+    'uses' => 'ApplicationsController@postCreateApplication',
+    'as' => 'backend.application.post.create'
+]);
+
+Route::get('application/edit/{application_id}', [
+    'uses' => 'ApplicationsController@getUpdate',
+    'as' => 'backend.application.get.update'
+]);
+
+Route::post('application/update', [
+    'uses' => 'ApplicationsController@postUpdate',
+    'as' => 'backend.application.post.update'
+]);
+
+Route::get('application/delete/{application_id}', [
+    'uses' => 'ApplicationsController@getDelete',
+    'as' => 'backend.application.delete'
+]);
+
+Route::get('application/single/{application_slug}', [
+    'uses' => 'ApplicationsController@getSingleApplication',
+    'as' => 'backend.application.single.application'
+]);
+
+Route::get('application/trash/{application_id}', [
+    'uses' => 'ApplicationsController@getTrash',
+    'as' => 'backend.application.trash'
+]);
+
+Route::get('application/trash', [
+    'uses' => 'ApplicationsController@DeleteForever',
+    'as' => 'backend.application.delete.page'
+]);
+
+Route::get('application/restore/{application_id}', [
+    'uses' => 'ApplicationsController@Restore',
+    'as' => 'backend.application.restore'
+]);
+
+Route::get('application/{filename}', [
+    'uses' => 'ApplicationsController@getImage',
+    'as' => 'backend.application.image'
+]);
+
+//----------------------end of job route---------------------
 
 
 

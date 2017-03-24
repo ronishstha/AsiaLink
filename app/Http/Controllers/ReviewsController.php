@@ -34,9 +34,8 @@ class ReviewsController extends Controller
         $review->slug = str_slug($slug,'-');
         $review->status = $request['status'];
         $user = Auth::user();
-        $review->user()->associate($user);;
-        $review->save();
-
+        $review->user()->associate($user);
+        $user->pages()->save($review);
         return redirect()->route('backend.review')->with(['success' => 'Successfully created']);
     }
 

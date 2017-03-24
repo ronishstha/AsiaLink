@@ -17,6 +17,7 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
+            $table->string('slug');
             $table->text('description');
             $table->enum('status', ['published', 'unpublished', 'trash'])->default('published');
             $table->string('user_id');

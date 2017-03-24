@@ -1,0 +1,755 @@
+/* USER DEFINED CSS STYLES */
+
+
+/* Determines the width of the page */
+
+/*
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 20px;
+} */
+
+
+.sliderparalength{
+
+	width:650px;
+	text-align: justify;
+	
+
+}
+
+
+.circular {
+	width: 175px; 
+	height: 270px;
+	/*border-radius: 150px; 
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px; */
+	background: url(../images/management/chairman.jpg) no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+
+
+
+.circular_md {
+	width: 175px; 
+	height: 270px;
+	/*border-radius: 150px; 
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px; */
+	background: url(../images/management/md.jpg) no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+
+
+
+.round_job1 {
+	width: 175px; 
+	height: 175px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(../images/management/md.jpg) no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+
+
+	.btn-readmore {
+    background-color: #34495E;
+    border-color: #34495E;
+    color: #fff;
+}
+
+
+
+.newblock
+{
+border-left:5px solid #eee;
+padding-left:20px;
+padding-bottom:20px;
+
+}
+
+.newblockmd{
+border-right:5px solid #eee;
+padding-right:20px;
+
+}
+
+.bordernav{
+
+	border-bottom:5px solid;
+}
+
+.headertitle{
+
+padding-right:0px;	
+
+}
+
+.headertitle h2{
+	text-transform: uppercase;
+	font-weight:bold;
+	color:#0E67B2;
+	padding-top:40px;
+	font-size:40px;
+	text-shadow: 4px 3px 5px rgba(150, 150, 150, 1);
+	float:right;
+
+
+}
+
+.headertitle p{
+	
+	margin-left: 728px;
+    margin-top: 0;
+}
+
+.verticalline{
+
+	border-right:3px solid white;
+	height: 400px;
+    margin-right: 38px;
+    margin-top: 64px;
+}
+
+.scrolldiv{
+
+	margin-top:-35px;
+	opacity:0.8;
+}
+
+.scrolldiv h2{
+	padding-bottom:20px;
+}
+
+.scrolldiv h3{
+	color: white;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding-bottom:10px;
+}
+
+.scrolldiv p{
+	color:#fff;
+	text-align:center;
+	font-size:25px;
+
+}
+
+.maapadmabuilding{
+
+}
+
+.maapadmabuilding h1{
+	
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    padding-top: 12px;
+     color:#4E4E4E;
+    opacity:0.8;
+}
+
+.maapadmabuilding p{
+
+	letter-spacing: 0.5px;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.applyonlinetitle{
+
+	background-color: #fff;
+	height:447px;
+	width:100%;
+	border-radius: 10px;
+}
+
+.applyonlinetitle h2{
+
+font-size:25px;
+font-weight:bold;
+padding-left: 20px;
+padding-top: 20px;
+
+}
+
+.applyonlinetitle p{
+padding-left:20px;
+
+}
+
+
+
+.bgworldbg{
+
+background: url(../images/header_asia.png) no-repeat;
+/*height:auto; */
+height:375px;
+width:100%;
+
+}
+
+.img-border{
+
+/*	border-radius:30px; */
+
+
+}
+
+.img-curve{
+margin-top:-67px;
+}
+
+
+.img-curve2{
+
+	margin-top:-110px;
+}
+
+.chairmantitlebar{
+
+	height:30px;
+	width:100%;
+
+	background: rgba(248,80,50,1);
+background: -moz-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(248,80,50,1)), color-stop(9%, rgba(246,41,12,1)), color-stop(21%, rgba(246,41,12,1)), color-stop(32%, rgba(246,41,12,1)), color-stop(49%, rgba(241,111,92,1)), color-stop(79%, rgba(246,41,12,1)), color-stop(91%, rgba(240,47,23,1)), color-stop(100%, rgba(231,56,39,1)));
+background: -webkit-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+background: -o-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+background: -ms-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+background: linear-gradient(to right, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=1 );
+}
+
+
+.chairmantitlebar p{
+
+	padding-left:50px;
+	padding-top:5px;
+}
+
+
+.imsmidbar{
+
+
+
+}
+
+.imscarouseltext{
+
+	margin-top:40px;
+	margin-left:755px;
+	width:400px;
+}
+
+
+.imscarouseltext h2{
+
+	color:#fff;
+	font-size:25px;
+
+}
+
+
+.imscarouseltext p{
+
+	width:375px;
+	text-align: justify;
+	height:39px;
+
+}
+
+.imspara{
+
+		background: rgba(248,80,50,1);
+background: -moz-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(248,80,50,1)), color-stop(9%, rgba(246,41,12,1)), color-stop(21%, rgba(246,41,12,1)), color-stop(32%, rgba(246,41,12,1)), color-stop(49%, rgba(241,111,92,1)), color-stop(79%, rgba(246,41,12,1)), color-stop(91%, rgba(240,47,23,1)), color-stop(100%, rgba(231,56,39,1)));
+background: -webkit-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+background: -o-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+background: -ms-linear-gradient(left, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+background: linear-gradient(to right, rgba(248,80,50,1) 0%, rgba(246,41,12,1) 9%, rgba(246,41,12,1) 21%, rgba(246,41,12,1) 32%, rgba(241,111,92,1) 49%, rgba(246,41,12,1) 79%, rgba(240,47,23,1) 91%, rgba(231,56,39,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=1 );
+	height:auto;
+	width:100%;
+}
+
+.imspara p{
+
+	padding-left:25px;
+	padding-right:25px;
+	padding-bottom:50px;
+	color:#fff;
+}
+
+.imsmsgcontainer{
+	height:300px;
+	width:100%;
+	background-color:#F6290C;
+	opacity:1.2;
+}
+
+.imschairmanimgbg{
+
+	height:300px;
+	width:300px;
+	background-color:#000; 
+	margin-top:-215px;
+}
+
+
+.imsmd{
+
+	margin-top:50px;
+}
+
+
+.imswomanimg{
+/*	margin-top:-50px; */
+}
+
+.imsvisabtn{
+
+	margin-top:20px;
+}
+
+
+.imsslider{
+
+	margin-top:-50px;
+}
+
+.imsbg{
+
+	background-color: #1760AD;
+}
+
+
+.imsbg h1, .imsbg p{
+color:#fff;
+
+}
+
+.imsmsgtitlebar{
+
+	height:30px;
+	width:100%;
+	background-color:#1760AD;
+	margin-top:5px;
+	margin-bottom:10px;
+}
+
+.imsmsgtitlebar p{
+	color:#fff;
+	padding-top:5px;
+	padding-left:20px;
+
+}
+
+.midasiasection{
+	color:black;
+	padding-top:30px;
+}
+
+.midasiasection h1{
+	color:black;
+	margin-bottom:25px;
+	letter-spacing: 0.5px;
+	font-size:26px;
+	opacity: 0.5;
+	
+}
+
+.midasiasection p{
+
+	color:black;
+	text-align: justify;
+	line-height: 23px;
+	opacity: 0.6;
+}
+
+
+.clientsbg{
+	background: rgba(0, 0, 0, 0) url("../images/asialink_bar.jpg") no-repeat scroll 50% 50% / cover ;
+	height:192px;
+}
+
+
+
+
+#asialinkbanner{
+	/* background: url("../images/banner.jpg") no-repeat scroll 50% 50% / cover; */
+
+background: url("../images/banner.jpg") no-repeat scroll 50% 50%;s
+	
+
+	overflow:hidden;
+	width:100%;
+	height:250px;
+	opacity:0.8;
+}
+
+.asiamenubg{
+	
+}
+
+
+.testimonials{
+
+	width:100%;
+}
+
+.testimonials p{
+	
+    margin-top: 36px;
+    line-height: 20px;
+
+}
+
+.testimonials h3{
+	font-size:15px;
+	text-align: center;
+	color:black;
+}
+
+.testimonials h4{
+
+	font-size:11px;
+	text-align: center;
+	color:black;
+
+}
+
+.img-center{
+
+	margin-left:36px;
+} 
+
+
+.asialink-imgbuilding{
+	width:100%;
+	height:400px;
+}
+
+
+.asialink_buildingtext{
+	 background-color: #2c3e50;
+    border-radius: 6px;
+    height: 170px;
+    margin-left: 20px;
+    opacity: 0.6;
+    width: 226px;
+}
+
+.asialink_buildingtext p{
+
+color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding-left: 28px;
+    padding-right: 15px;
+    padding-top: 25px;
+    text-align: left;
+    line-height: 19px;
+}
+
+#bottom{
+	/* background: #eaeef1 none repeat scroll 0 0; */
+
+	background: #EAEEF1 none repeat scroll 0 0; 
+	
+    color: #97a3ac;
+    padding: 1.8% 0;
+}
+
+
+.verticalline{
+	border-right: 1px solid #d1d7dc;
+  /*  padding: 2.8125% 0 0 5%; */
+   /* width: 10.7292%;  */
+   height:100px;
+}
+
+.bottombartext p{
+
+	padding-top:70px;
+	letter-spacing: 0.5px;
+}
+
+
+
+#bottommidbartarget{
+
+	background: #00468c url("../images/bottompic.jpg") no-repeat scroll center center / cover ;
+    padding: 4.8% 0 4%;
+    height:250px;
+    opacity:0.7;
+}
+
+.footertext_target p{
+
+	font-size:12px;
+	letter-spacing: 0.5;
+}
+
+.bottombarmenu_title h4{
+
+} 
+
+
+.bottombarmenu_title li{
+	list-style: none;
+	}
+
+
+.bottombarmenu_ul{
+	float:left;
+	line-height: 22px;
+    margin-left: -38px;
+}
+
+
+.asialink_aboutusheader h1{
+
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+     color:#4E4E4E;
+    opacity:0.8;
+
+}
+
+
+.asialink_aboutusheader p{
+
+	letter-spacing: 0.5px;
+	line-height:25px;
+	text-align: justify;
+
+} 
+
+
+.asialink_mission h1{
+
+	
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+     color:#4E4E4E;
+    opacity:0.8;
+
+}
+
+.asialink_mission p{
+
+	letter-spacing: 0.5px;
+	line-height:25px;
+	text-align: justify;
+
+}
+
+
+.asialink_companyprofile h1{
+
+	
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    color:#4E4E4E;
+    opacity:0.8;
+}
+
+
+.asialinknepalese_list li{
+	list-style-type: square;
+	letter-spacing:0.5px;
+	line-height:25px;
+	text-align:justify;
+}
+
+
+#about-us{
+	margin-top:20px;
+}
+
+.asialink_messages h1, .asialink_vicemessage h1{
+	font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+     color:#4E4E4E;
+    opacity:0.8;
+
+}
+
+.asialink_messages h4{
+
+	font-size:17px;
+	letter-spacing: 0.5px;
+	line-height: 27px;
+	font-style:italic;
+	font-weight:bold;
+	width:650px;
+	padding-left:20px;
+	padding-top:20px;
+}
+
+
+.asialink_messages h6{
+
+	font-size:16px;
+	letter-spacing: 0.5px;
+	font-style:italic;
+	padding-left:20px;
+	margin-top:-10px;
+}
+.asialink_messages p{
+
+}
+
+
+.asialink_text h4{
+	font-size:15px;
+	font-weight:bold;
+	letter-spacing:0.5px;
+
+}
+
+.asialink_text p{
+letter-spacing: 0.5px;
+	line-height:25px;
+	text-align: justify;
+}
+
+
+.asialink_vicemessage h1{
+	font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+     color:#4E4E4E;
+    opacity:0.8;
+    text-align: center;
+
+}
+
+.asialink_vicemessage p{
+letter-spacing: 0.5px;
+	line-height:25px;
+	text-align: justify;
+}
+
+.asialink_vc{
+margin-bottom: 40px;
+    margin-left: 120px;
+}
+
+
+.asialink_documentation p{
+	text-align: justify;
+	line-height: 25px;
+	letter-spacing: 0.5px;
+}
+
+
+.asialink_documentation h3{
+	font-size:18px;
+	font-weight:bold;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+
+}
+
+.asialinkselection-collage{
+	padding-left:40px;
+}
+
+.asialink_hotjobs h3{
+	font-size:18px;
+	text-transform:uppercase;
+	letter-spacing: 0.5px;
+}
+
+.asialink_hotjobs1{
+	background-color:#EAEEF1;
+	padding:25px 25px 35px 25px;
+}
+
+.asialink_hotjobs1 p, .asialink_hotjobs2 p{
+
+	text-align: justify;
+	line-height: 25px;
+	letter-spacing: 0.5px;
+}
+
+.asialink_hotjobs2{
+	background-color:#FFF;
+	padding:25px 25px 35px 25px;
+}
+
+.asialink_hotjobsimg{
+	padding-left:50px;
+}
+
+
+.asialink_hotjobsimgtext h4{
+
+	font-size: 17px;
+    font-style: italic;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    line-height: 27px;
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 400px;
+
+
+}
+
+.asialink_downloadforms h4{
+	font-size:25px;
+	letter-spacing:0.5px;
+
+}
+
+.asialink_downloadforms p{
+
+	color: black;
+    line-height: 23px;
+    text-align: justify;
+}
+
+.asialinkdownload_list li{
+
+border-bottom: 1px dotted black;
+    font-size: 18px;
+    line-height: 50px;
+    list-style: outside none none;
+    width: 200px;
+}
+
+.asialink_contacts h4{
+	letter-spacing: 0.5px;
+	padding-bottom:20px;
+
+}
+
+.asialink_jobcate p{
+line-height: 22px;
+font-size: 16px;
+
+}
