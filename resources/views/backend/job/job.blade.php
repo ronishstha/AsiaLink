@@ -29,7 +29,7 @@
 
                         <div class="card-content table-responsive">
                             <i class="material-icons create">note_add</i>
-                            <a href="{{ route('backend.job.get.create') }}">Create Banner</a>
+                            <a href="{{ route('backend.job.get.create') }}">Create Job</a>
                             <a href="{{ route('backend.job.delete.page') }}">
                                 <i class="material-icons delete">delete
                                     @php

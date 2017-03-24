@@ -23,15 +23,16 @@ class ApplicationsController extends Controller
 
     public function postCreateApplication(Request $request){
         $this->validate($request, [
-            'title' => 'required'
+            'title' => 'required',
+            'form'  => 'required'
         ]);
 
         $application = new Application();
-        $file = $request->file('image');
-        $uploadPath = storage_path() . '/app';
-        $fileName = date("Y-m-d-H-i-s") . $file->getApplicationOriginalName();
+        $file = $request->file('form');
+        $uploadPath = public_path();
+        $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
         $file->move($uploadPath, $fileName);
-        $application->image = $fileName;
+        $application->form = $fileName;
         $slug = $request['title'];
         $application->title = $request['title'];
         $application->slug = str_slug($slug,'-');
@@ -50,22 +51,21 @@ class ApplicationsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'image' => 'required',
-            'description' => 'required'
+            'form' => 'required'
         ]);
         $application = Application::findOrFail($request['application_id']);
-        $old = $application->image;
-        $file = $request->file('image');
-        if($request->hasFile('image')){
-            if(!empty($application->image)){
-                unlink(storage_path() . "\\app\\" . $application->image);
+        $old = $application->form;
+        $file = $request->file('form');
+        if($request->hasFile('form')){
+            if(!empty($application->form)){
+                unlink(public_path() . $application->form);
             }
-            $uploadPath = storage_path() . '/app';
-            $fileName = date("Y-m-d-H-i-s") . $file->getApplicationOriginalName();
+            $uploadPath = public_path();
+            $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
             $file->move($uploadPath, $fileName);
-            $application->image = $fileName;
+            $application->form = $fileName;
         }else{
-            $application->image = $old;
+            $application->form = $old;
         }
         $slug = $request['title'];
         $application->title = $request['title'];
@@ -79,7 +79,7 @@ class ApplicationsController extends Controller
 
     public function getDelete($application_id){
         $application = Application::findOrFail($application_id);
-        unlink(storage_path() . "\\app\\" . $application->image);
+        unlink(public_path() . $application->form);
         $application->delete();
         return redirect()->route('backend.application.delete.page')->with(['success' => 'Successfully deleted']);
     }

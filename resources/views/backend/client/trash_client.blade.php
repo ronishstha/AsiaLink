@@ -25,9 +25,9 @@
                                     $count = 0;
                                     $i = 0;
                                 @endphp
-                                @foreach($banners as $banner)
+                                @foreach($clients as $client)
                                     @php
-                                        if($banner->status == "trash"){
+                                        if($client->status == "trash"){
                                             $i += 1;
                                     }
                                     @endphp
@@ -43,15 +43,15 @@
                                     <th>delete</th>
                                     </thead>
 
-                                    @foreach($banners as $banner)
-                                        @if($banner->status == "trash")
+                                    @foreach($clients as $client)
+                                        @if($client->status == "trash")
                                             <tbody>
                                             <tr>
-                                                <td>{{ $banner->title }}</td>
-                                                <td>{{ $banner->user->name }}</td>
-                                                <td><button class="btn-view"><a href="{{ route('backend.banner.single.banner', ['banner_slug' => $banner->slug]) }}">View</a></button></td>
-                                                <td><button class="btn-edit"><a href="{{ route('backend.banner.restore', ['banner_id' => $banner->id]) }}">Restore</a></button></td>
-                                                <td><button class="btn-delete"><a href="{{ route('backend.banner.delete', ['banner_id' => $banner->id]) }}">Delete</a></button></td>
+                                                <td>{{ $client->title }}</td>
+                                                <td>{{ $client->user->name }}</td>
+                                                <td><button class="btn-view"><a href="{{ route('backend.client.single.client', ['client_slug' => $client->slug]) }}">View</a></button></td>
+                                                <td><button class="btn-edit"><a href="{{ route('backend.client.restore', ['client_id' => $client->id]) }}">Restore</a></button></td>
+                                                <td><button class="btn-delete"><a href="{{ route('backend.client.delete', ['client_id' => $client->id]) }}">Delete</a></button></td>
                                             </tr>
                                             </tbody>
                                         @endif

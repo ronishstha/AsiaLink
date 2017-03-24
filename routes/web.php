@@ -16,19 +16,28 @@
 Route::get('/', [
     'uses' => 'FrontController@getHome',
     'as'   => 'home'
-])->name('home');
+]);
 
 Route::get('about-us', function(){
     return view('frontend.about-us');
-})->name('about');
+})->name('about-us');
 
 Route::get('messages', function(){
     return view('frontend.messages');
 })->name('messages');
 
-Route::get('clients', function(){
-    return view('frontend.clients');
-})->name('clients');
+Route::get('licenses', function(){
+    return view('frontend.licenses');
+})->name('licenses');
+
+Route::get('clients', [
+    'uses' => 'FrontController@getClients',
+    'as'   => 'clients'
+]);
+
+Route::get('apply-online', function(){
+    return view('frontend.applyone');
+})->name('apply-online');
 
 Route::get('contacts', function(){
     return view('frontend.contacts');
@@ -42,17 +51,19 @@ Route::get('documentation', function(){
     return view('frontend.documentation');
 })->name('documentation');
 
-Route::get('download', function(){
-    return view('frontend.download');
-})->name('download');
+Route::get('download-application', [
+    'uses' => "FrontController@getApplication",
+    'as'   => 'download'
+]);
 
-Route::get('hot-jobs', function(){
-    return view('frontend.hotjobs');
-})->name('hotjobs');
+Route::get('hot-jobs', [
+    'uses' => 'FrontController@getJobs',
+    'as'   => 'hot-jobs'
+]);
 
 Route::get('jobs-categories', function(){
     return view('frontend.jobscategories');
-})->name('jobscategories');
+})->name('jobs-categories');
 
 Route::get('nepal', function(){
     return view('frontend.nepal');
@@ -60,7 +71,7 @@ Route::get('nepal', function(){
 
 Route::get('nepalese-workers', function(){
     return view('frontend.nepaleseworkers');
-})->name('nepaleseworkers');
+})->name('nepalese-workers');
 
 Route::get('selection', function(){
     return view('frontend.selection');
@@ -71,8 +82,8 @@ Route::get('services', function(){
 })->name('services');
 
 Route::get('terms', function(){
-    return view('frontend.licenses');
-})->name('licenses');
+    return view('frontend.terms');
+})->name('terms');
 
 
 Route::get('login', [
@@ -442,6 +453,14 @@ Route::get('application/{filename}', [
 ]);
 
 //----------------------end of job route---------------------
+
+Route::get('logout', [
+    'uses' => 'UserController@getLogout',
+    'as'   => 'admin.logout'
+]);
+
+//---------------------------------------------------------------------
+//---------------------END OF ADMIN MIDDLEWARE
 
 
 

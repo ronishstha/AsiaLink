@@ -16,6 +16,8 @@
     <!-- ############### USERDEFINED CSS SYTLES ############ -->
     <link href="{{ URL::asset('css/styles.css') }}" rel="stylesheet">
 
+    @yield('style')
+
 
 
     <!-- <link href="css/hotjobs_hover.css" rel="stylesheet">  -->
@@ -133,7 +135,7 @@
 
         <div class="row">
 
-            @include('frontend.layouts.bottombar')
+            @include('frontend.layouts.bottombarmenu')
 
         </div>
     </div>

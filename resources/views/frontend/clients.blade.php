@@ -1,5 +1,10 @@
 @extends('frontend.layouts.master')
 
+@section('style')
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/hover/style_common.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/hover/style1.css') }}" />
+@endsection
+
 @section('title')
     Clients | AsiaLink Services
 @endsection
@@ -22,6 +27,7 @@
                     <div class="col-md-1"> </div>
 
                     <div class="col-md-11">
+                        @if(count($clients) == 0)
                     <div class="view view-first">
                         <img src="{{ URL::asset('images/package/1.jpg') }}" />
                         <div class="mask">
@@ -104,9 +110,19 @@
                            <!-- <p>A small traditional village in the lap of the Himalayas.</p>
                             <a href="#" class="info">Read More</a> -->
                         </div>
-                    </div> 
+                    </div>
+                    @endif
 
-
+                        @foreach($clients as $client)
+                                <div class="view view-first">
+                                    <img src="{{ URL::asset('client/' . $client->image) }}" />
+                                    <div class="mask">
+                                        <h2>{{ $client->title }}</h2>
+                                        <!-- <p>A small traditional village in the lap of the Himalayas.</p>
+                                         <a href="#" class="info">Read More</a> -->
+                                    </div>
+                                </div>
+                        @endforeach
                  </div>   <!-- end of col-md-10 -->
 
 

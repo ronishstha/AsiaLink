@@ -186,8 +186,9 @@
                             </blockquote>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </section><!--/#services-->
-@section
+@endsection

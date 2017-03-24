@@ -51,7 +51,7 @@
                 </a>
             </li>
             <li {{ Request::is('application*') ? 'class=active' : ''}}>
-                <a href="{{ route('backend.review') }}">
+                <a href="{{ route('backend.application') }}">
                     <i class="material-icons">comment</i>
                     <p>Application</p>
                 </a>
@@ -75,29 +75,14 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">dashboard</i>
-                            <p class="hidden-lg hidden-md">Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">notifications</i>
-                            <span class="notification">5</span>
-                            <p class="hidden-lg hidden-md">Notifications</p>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Mike John responded to your email</a></li>
-                            <li><a href="#">You have 5 new tasks</a></li>
-                            <li><a href="#">You're now friend with Andrew</a></li>
-                            <li><a href="#">Another Notification</a></li>
-                            <li><a href="#">Another One</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="material-icons">person</i>
                             <p class="hidden-lg hidden-md">Profile</p>
                         </a>
+                    </li>
+                    <li>
+                        @if(Auth::check())
+                            <a href="{{ route('admin.logout') }}"><strong>Log out</strong></a>
+                        @endif
                     </li>
                 </ul>
 

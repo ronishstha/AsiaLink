@@ -26,14 +26,14 @@
     color: ghostwhite;
 }
 .pagination{
-    margin-left: 400px;
+    margin-left: 375px;
 }
 .create{
-    margin-left: 425px;
+    margin-left: 375px;
 }
 a .delete{
   color: black;
-    margin-left: 380px;
+    margin-left: 300px;
     position: relative;
     padding: 3px 5px;
 }

@@ -13,9 +13,13 @@
                    <h4> Download Forms</h4>
                         <p> You can download the forms in here</p>
                             <ul class="asialinkdownload_list">    
-                                <li> <a href="forms/application1.pdf"> Application Form I </a> </li>
-                                <li> Application Form II </li>
-
+                                <li> <a href="{{ URL::asset('application1.pdf') }}"> Application Form I </a> </li>
+                                @if(count($applications) == 0 )
+                                    <p>No Application Form Available</p>
+                                @endif
+                                @foreach($applications as $application)
+                                <li> <a href="{{ URL::asset($application->form) }}">{{ $application->title }}</a> </li>
+                                @endforeach
                             </ul>
                 </div> <!-- end of asialink_downloadforms -->            
             </div> <!-- end of col-md-6 -->
@@ -25,14 +29,4 @@
 
        </div> <!-- end of row --> 
     </section><!--/#registration-->
-
-    
-
-    <?php include("includes/allinonebottombar.php");?>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
+@endsection

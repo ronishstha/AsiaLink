@@ -36,7 +36,7 @@
             <!--
             <li class="portfolio-item apps">
                 <div class="item-inner">
-                    <img src="images/portfolio/thumb/item5.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/thumb/item5.jpg') }}" alt="">
                     <h5>Black Eagle Technical Services LLC</h5>
                     <div class="overlay">
                         <a class="preview btn btn-danger" href="images/portfolio/licensefull/item5.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>             
@@ -46,10 +46,10 @@
             
             <li class="portfolio-item joomla html bootstrap">
                 <div class="item-inner">
-                    <img src="images/portfolio/demandsthumb/item6.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item6.jpg') }}" alt="">
                     <h5>Elite Security, Abu Dhabi, U.A.E</h5>
                     <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/demandsfull/item6.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>              
+                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item6.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                     </div>           
                 </div>           
             </li><!--/.portfolio-item-->
@@ -57,50 +57,50 @@
 
              <li class="portfolio-item joomla html bootstrap">
                 <div class="item-inner">
-                    <img src="images/portfolio/demandsthumb/item7.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item7.jpg') }}" alt="">
                     <h5>Emirates Transport, Abu Dhabi, U.A.E</h5>
                     <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/demandsfull/item7.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>              
+                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item7.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                     </div>           
                 </div>           
             </li><!--/.portfolio-item-->
 
               <li class="portfolio-item joomla html bootstrap">
                 <div class="item-inner">
-                    <img src="images/portfolio/demandsthumb/item8.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item8.jpg') }}" alt="">
                     <h5>Innovations Building Maintennca LLC, Dubai, U.A.E</h5>
                     <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/demandsfull/item8.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>              
+                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item8.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                     </div>           
                 </div>           
             </li><!--/.portfolio-item-->
             
             <li class="portfolio-item joomla html bootstrap">
                 <div class="item-inner">
-                    <img src="images/portfolio/demandsthumb/item9.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item9.jpg') }}" alt="">
                     <h5>Dubai Royal Palace Hospitality LLC, Dubai, U.A.E</h5>
                     <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/demandsfull/item9.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>              
+                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item9.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                     </div>           
                 </div>           
             </li><!--/.portfolio-item-->
 
             <li class="portfolio-item joomla html bootstrap">
                 <div class="item-inner">
-                    <img src="images/portfolio/demandsthumb/item10.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item10.jpg') }}" alt="">
                     <h5>Avari Dubai Hotel, Dubai, U.A.E</h5>
                     <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/demandsfull/item10.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>              
+                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item10.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                     </div>           
                 </div>           
             </li><!--/.portfolio-item-->
 
              <li class="portfolio-item joomla html bootstrap">
                 <div class="item-inner">
-                    <img src="images/portfolio/demandsthumb/item11.jpg" alt="">
+                    <img src="{{ URL::asset('') }}images/portfolio/demandsthumb/item11.jpg" alt="">
                     <h5>Emirates Cab, Dubai, U.A.E</h5>
                     <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/demandsfull/item11.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>              
+                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item11.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                     </div>           
                 </div>           
             </li><!--/.portfolio-item-->
@@ -111,7 +111,7 @@
             <!--
             <li class="portfolio-item joomla wordpress apps">
                 <div class="item-inner">
-                    <img src="images/portfolio/thumb/item4.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/thumb/item4.jpg') }}" alt="">
                     <h5>Permanent Account Number (PAN)</h5>
                     <div class="overlay">
                         <a class="preview btn btn-danger" href="images/portfolio/licensefull/item4.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>          
@@ -122,7 +122,7 @@
             <!--
             <li class="portfolio-item joomla html">
                 <div class="item-inner">
-                    <img src="images/portfolio/thumb/item5.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/thumb/item5.jpg') }}" alt="">
                     <h5>Lorem ipsum dolor sit amet</h5>
                     <div class="overlay">
                         <a class="preview btn btn-danger" href="images/portfolio/full/item5.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>          
@@ -133,7 +133,7 @@
             <!--
             <li class="portfolio-item wordpress html">
                 <div class="item-inner">
-                    <img src="images/portfolio/thumb/item6.jpg" alt="">
+                    <img src="{{ URL::asset('images/portfolio/thumb/item6.jpg') }}" alt="">
                     <h5>Lorem ipsum dolor sit amet</h5>
                     <div class="overlay">
                         <a class="preview btn btn-danger" href="images/portfolio/full/item6.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>           
@@ -143,22 +143,5 @@
         </ul> <!-- ### main ul ######## -->
         
     </section><!--/#portfolio-->
+@endsection
 
-    <section id="bottom" class="wet-asphalt">
-        <div class="container">
-            <div class="row">
-                <?php include("includes/bottombar.php");?>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </section><!--/#bottom-->
-
-   
-   <?php include("includes/footer.php");?>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>

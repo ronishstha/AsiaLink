@@ -34,6 +34,15 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group label-floating">
+                                            <label class="control-label">Company</label>
+                                            <input type="text" class="form-control" name="company" id="company" value="{{ Request::old('company') ? Request::old('title') : isset($job) ? $job->title : '' }}">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating">
                                             <label class="control-label">Location</label>
                                             <input type="text" class="form-control" name="location" id="location" value="{{ Request::old('location') ? Request::old('location') : isset($job) ? $job->location : '' }}">
                                         </div>
@@ -82,6 +91,15 @@
                                         <div class="form-group label-floating">
                                             <label>Description</label>
                                             <textarea row=20 class="form-control" name="description" id="description" >{{ Request::old('description')? Request::old('description') : isset($job)? $job->description : '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating">
+                                            <label>Requirement</label>
+                                            <textarea row=20 class="form-control" name="requirement" id="requirement" >{{ Request::old('requirement')? Request::old('requirement') : isset($job)? $job->requirement : '' }}</textarea>
                                         </div>
                                     </div>
                                 </div>

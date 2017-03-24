@@ -44,8 +44,17 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
-                                            <label>Description</label>
-                                            <textarea row=20 class="form-control" name="description" id="description" >{{ Request::old('description')? Request::old('description') : isset($banner)? $banner->description : '' }}</textarea>
+                                            <label>Description1</label>
+                                            <textarea row=20 class="form-control" name="description1" id="description1" >{{ Request::old('description1')? Request::old('description1') : isset($banner)? $banner->description1 : '' }}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating">
+                                            <label>Description2</label>
+                                            <textarea row=20 class="form-control" name="description2" id="description2" >{{ Request::old('description2')? Request::old('description2') : isset($banner)? $banner->description2 : '' }}</textarea>
                                         </div>
                                     </div>
                                 </div>

@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function getLogout(){
         Auth::logout();
-        return redirect()->route('frontend.index');
+        return redirect()->route('home');
     }
 
     public function postLogin(Request $request){

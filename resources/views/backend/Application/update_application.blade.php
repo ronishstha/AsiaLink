@@ -39,8 +39,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="">
-                                            <label id="fileupload-example-3-label" for="fileupload-example-3">Image</label>
-                                            <input type="file" id="fileupload-example-3" name="image" value="{{ Request::old('image') ? Request::old('image') : isset($application) ? $application->image : '' }}"/>
+                                            <label id="fileupload-example-3-label" for="fileupload-example-3">Application Form</label>
+                                            <input type="file" id="fileupload-example-3" name="form" value="{{ Request::old('form') ? Request::old('form') : isset($application) ? $application->form : '' }}"/>
                                         </div>
                                     </div>
                                 </div>

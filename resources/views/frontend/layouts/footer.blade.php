@@ -5,12 +5,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2015. AsiaLink Services Pvt. Ltd. <a target="_blank" href="http://www.hamrodoundation.com" title="We brand you.">  Wonderfully Designed & Hosted</a>.
+                    &copy; 2015. AsiaLink Services Pvt. Ltd. <a target="_blank" href="http://www.hamrofoundation.com" title="We brand you.">  Wonderfully Designed & Hosted</a>.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="contacts.php">Contact Us</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('contacts') }}">Contact Us</a></li>
 
                                                 <li><a href="#">
 

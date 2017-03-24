@@ -1,11 +1,10 @@
 @extends('frontend.layouts.master')
 
 @section('title')
-    Hotjobs | AsiaLink Services
+    Apply Online | AsiaLink Services
 @endsection
 
 @section('content')
-
 
     <section id="registration" class="container">
         <div class="row">

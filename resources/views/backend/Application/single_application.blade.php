@@ -39,14 +39,7 @@
                             </p>
                         </div>
                         <div class="card-content table-responsive">
-                            @if(Storage::disk('application')->has($application->image))
-                                <section class="row">
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <img src="{{ route('backend.application.image', ['filename' => $application->image]) }}" alt="" class="img-responsive" style="border-radius: 2px;">
-                                    </div>
-                                </section>
-                                <br>
-                            @endif
+                            <a href="{{ URL::asset($application->form) }}">{{$application->title}}</a>
 
                             <div class="single-button">
                             <button class="btn-edit"><a href="{{ route('backend.application.get.update', ['application_id' => $application->id]) }}">Edit</a></button>

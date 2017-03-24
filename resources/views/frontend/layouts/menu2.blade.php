@@ -18,7 +18,7 @@
 
                 <ul class="nav navbar-nav navbar-left targetnav"> 
 
-                    <li class="active"><a href="index.php">Home</a></li>
+                    <li class="active"><a href="{{ route('home') }}">Home</a></li>
                   
                    
                    <!-- <li><a href="services.html">Activities</a></li> -->
@@ -27,11 +27,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Know us <i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
 
-                            <li><a href="about-us.php">About us</a></li>
-                            <li><a href="messages.php">Messages</a></li>
+                            <li><a href="{{ route('about-us') }}">About us</a></li>
+                            <li><a href="{{ route('messages') }}">Messages</a></li>
                             
-                            <li><a href="licenses.php">Licenses</a></li>
-                            <li><a href="nepaleseworkers.php">Nepalese Worker?</a></li>
+                            <li><a href="{{ route('licenses') }}">Licenses</a></li>
+                            <li><a href="{{ route('nepalese-workers') }}">Nepalese Worker?</a></li>
                              
                             
                        
@@ -41,9 +41,9 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Recruitment <i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="documentation.php">Documentation</a></li>
-                                    <li><a href="selection.php">Selection & Deployment</a></li>
-                                    <li><a href="terms.php">Terms & Conditions</a></li>
+                            <li><a href="{{ route('documentation') }}">Documentation</a></li>
+                                    <li><a href="{{ route('selection') }}">Selection & Deployment</a></li>
+                                    <li><a href="{{ route('terms') }}">Terms & Conditions</a></li>
                         </ul>
                     </li>
 
@@ -52,19 +52,16 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seeker <i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="hotjobs.php">Hot Jobs</a></li>
-                                    <li><a href="applyone.php">Apply Online</a></li>
-                                    <li><a href="download.php">Download Forms</a></li>
+                            <li><a href="{{ route('hot-jobs') }}">Hot Jobs</a></li>
+                            <li><a href="{{ route('apply-online') }}">Apply Online</a></li>
+                            <li><a href="{{ route('download') }}">Download Forms</a></li>
                         </ul>
                     </li>
 
-
-                     
-
-                    <li><a href="jobscategories.php">Jobs Categories </a></li>
+                    <li><a href="{{ route('jobs-categories') }}">Jobs Categories </a></li>
 
 
-                    <li><a href="clients.php">Clients</a></li>
+                    <li><a href="{{ route('clients') }}">Clients</a></li>
                    
                   
                     
@@ -73,9 +70,9 @@
 
                     <!--<li><a href="blog.html">Blog</a></li> -->
 
-                    <li><a href="nepal.php">Nepal</a></li>
+                    <li><a href="{{ route('nepal') }}">Nepal</a></li>
 
-                    <li><a href="contacts.php">Contacts</a></li>
+                    <li><a href="{{ route('contacts') }}">Contacts</a></li>
                 </ul>
 
 

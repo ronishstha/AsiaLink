@@ -43,6 +43,15 @@
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Company</label>
+                                            <input type="text" class="form-control" name="company" id="company" value="{{ Request::old('company') }}">
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Location</label>
@@ -60,7 +69,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group label-floating">
                                         <label class="control-label">Required No</label>
-                                        <input type="text" class="form-control" name="reqruired_no" id="reqruired_no" value="{{ Request::old('reqruired_no') }}">
+                                        <input type="text" class="form-control" name="required_no" id="required_no" value="{{ Request::old('required_no') }}">
                                     </div>
                                 </div>
 
@@ -77,6 +86,15 @@
                                         <div class="">
                                             <label id="fileupload-example-3-label" for="fileupload-example-3">Image</label>
                                             <input type="file" id="fileupload-example-3" name="image" value="{{ Request::old('image') }}"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group label-floating">
+                                            <label>Requirement</label>
+                                            <textarea row=20 class="form-control" name="requirement" id="requirement" value="{{ Request::old('requirement') }}"></textarea>
                                         </div>
                                     </div>
                                 </div>
