@@ -12,8 +12,14 @@
                <div class="asialink_downloadforms"> 
                    <h4> Download Forms</h4>
                         <p> You can download the forms in here</p>
-                            <ul class="asialinkdownload_list">    
-                                <li> <a href="{{ URL::asset('application1.pdf') }}"> Application Form I </a> </li>
+                            <ul class="asialinkdownload_list">
+
+                                {{--------------------------static online form----------------------------------------}}
+
+                               {{-- <li> <a href="{{ URL::asset('application1.pdf') }}"> Application Form I </a> </li>--}}
+
+                                {{------------------------------dynamic online form-------------------------------------}}
+
                                 @if(count($applications) == 0 )
                                     <p>No Application Form Available</p>
                                 @endif

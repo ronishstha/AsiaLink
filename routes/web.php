@@ -18,13 +18,54 @@ Route::get('/', [
     'as'   => 'home'
 ]);
 
-Route::get('about-us', function(){
-    return view('frontend.about-us');
-})->name('about-us');
+Route::post('message', [
+    'uses' => 'FrontController@postMessage',
+    'as'   => 'message'
+]);
 
-Route::get('messages', function(){
-    return view('frontend.messages');
-})->name('messages');
+Route::post('form', [
+    'uses' => 'FrontController@postForm',
+    'as'   => 'form'
+]);
+
+Route::get('about-us', [
+    'uses' => 'FrontController@getAbout',
+    'as'   => 'about-us'
+]);
+
+Route::get('messages', [
+   'uses' => 'FrontController@getMessages',
+    'as'  => 'messages'
+]);
+
+Route::get('documentation', [
+    'uses' => 'FrontController@getDocumentation',
+    'as'  => 'documentation'
+]);
+
+Route::get('selection-deployment', [
+    'uses' => 'FrontController@getSelection',
+    'as'  => 'selection'
+]);
+
+Route::get('terms-conditions', [
+    'uses' => 'FrontController@getTerms',
+    'as'  => 'terms'
+]);
+
+Route::get('apply-online', [
+    'uses' => 'FrontController@getForm',
+    'as'   => 'apply-online'
+]);
+
+Route::get('nepalese-workers', [
+    'uses' => 'FrontController@getNepalese_Workers',
+    'as'   => 'nepalese-workers'
+]);
+
+Route::get('services', function(){
+    return view('frontend.services');
+})->name('services');
 
 Route::get('licenses', function(){
     return view('frontend.licenses');
@@ -35,9 +76,10 @@ Route::get('clients', [
     'as'   => 'clients'
 ]);
 
-Route::get('apply-online', function(){
-    return view('frontend.applyone');
-})->name('apply-online');
+Route::get('jobs-categories', [
+    'uses' => 'FrontController@getJobs_Categories',
+    'as'   => 'jobs-categories'
+]);
 
 Route::get('contacts', function(){
     return view('frontend.contacts');
@@ -46,10 +88,6 @@ Route::get('contacts', function(){
 Route::get('demands', function(){
     return view('frontend.demands');
 })->name('demands');
-
-Route::get('documentation', function(){
-    return view('frontend.documentation');
-})->name('documentation');
 
 Route::get('download-application', [
     'uses' => "FrontController@getApplication",
@@ -61,30 +99,10 @@ Route::get('hot-jobs', [
     'as'   => 'hot-jobs'
 ]);
 
-Route::get('jobs-categories', function(){
-    return view('frontend.jobscategories');
-})->name('jobs-categories');
-
-Route::get('nepal', function(){
-    return view('frontend.nepal');
-})->name('nepal');
-
-Route::get('nepalese-workers', function(){
-    return view('frontend.nepaleseworkers');
-})->name('nepalese-workers');
-
-Route::get('selection', function(){
-    return view('frontend.selection');
-})->name('selection');
-
-Route::get('services', function(){
-    return view('frontend.services');
-})->name('services');
-
-Route::get('terms', function(){
-    return view('frontend.terms');
-})->name('terms');
-
+Route::get('nepal', [
+    'uses' => 'FrontController@getNepal',
+    'as'   => 'nepal'
+]);
 
 Route::get('login', [
     'uses' => 'UserController@getLogin',
@@ -95,6 +113,9 @@ Route::post('login', [
     'uses' => 'UserController@postLogin',
     'as'  => 'admin.login.post'
 ]);
+//------------------------------------------------------------------------------------
+//------------------------------END OF FRONTEND ROUTE---------------------------------
+
 
 //---------------------------------ADMIN MIDDLEWARE------------------------------------
 //-------------------------------------------------------------------------------------
@@ -103,17 +124,17 @@ Route::group(['prefix' => 'admin',
     'middleware' => 'auth'], function() {
 
 
-    Route::get('/', function () {
-        return view('backend.dashboard');
-    })->name('backend.dashboard');
+    Route::get('/change-password', function () {
+        return view('backend.change_password');
+    })->name('backend.changepassword');
 
-
-    Route::get('notification', function () {
-        return view('backend.notification');
-    })->name('backend.notification');
+    Route::post('/change-password/update', [
+        'uses' => 'UserController@changePassword',
+        'as'   => 'backend.update.password'
+    ]);
 
 //----------------------------------pages route---------------------------------------
-    Route::get('pages', [
+    Route::get('/', [
         'uses' => 'PageController@getPage',
         'as' => 'backend.pages'
     ]);
@@ -394,7 +415,6 @@ Route::group(['prefix' => 'admin',
 
 //-------------------------end of review route---------------------------------
 
-});
 
 //--------------------------application route----------------------------------
 Route::get('application', [
@@ -458,6 +478,8 @@ Route::get('logout', [
     'uses' => 'UserController@getLogout',
     'as'   => 'admin.logout'
 ]);
+
+});
 
 //---------------------------------------------------------------------
 //---------------------END OF ADMIN MIDDLEWARE

@@ -8,17 +8,20 @@
 
 
     <section id="about-us" class="container">
-        <div class="row">
+        @if($page->status == "published")
+            {!! $page->content !!}
+        @endif
+        {{--<div class="row">
 
-            
+
             <div class="col-sm-6 asialink_aboutusheader">
                 <h1>Why Nepalese Workers ?</h1>
                 <p style="text-align:justify;">
-                
+
                     Nepalese professionals and skilled workers are considered by many as among the most hard working, efficient and loyal workers in the world.</P>
 
                  <p style="text-align:justify;">
-                    Over the years, Nepalese have journeyed to many parts of the world to work as professionals, skilled, semi-skilled and technical workers. Nine million Nepalese are spread around the world working in every imaginable job, thus sometimes earning the distinction as a global worker. In a nutshell, the demand for Nepalese workers stem from some widely-recognized attributes. 
+                    Over the years, Nepalese have journeyed to many parts of the world to work as professionals, skilled, semi-skilled and technical workers. Nine million Nepalese are spread around the world working in every imaginable job, thus sometimes earning the distinction as a global worker. In a nutshell, the demand for Nepalese workers stem from some widely-recognized attributes.
 
                 </p>
 
@@ -32,17 +35,17 @@
                        <li> <span style="font-weight:bold">People-Oriented. </span>Can easily adjust to foreign culture and work environment. Has a sound temperament and can cope with the demands and pressure of his work.</li>
                        <li><span style="font-weight:bold"> Warm and Caring.</span> Excel and is recognized worldwide for professions and competencies that require people oriented service and care.</li>
 
-                </ul>    
+                </ul>
 
             </div><!--/.col-sm-5-->
             <div class="col-sm-6">
-                
+
                     <div class="maapadmabuilding">
-                        
+
                         <img style="padding-left:100px;"class="img-responsive" src="{{ URL::asset('images/chef.png') }}" alt="Asia Link Services" />
 
                         <p style="margin-top:20px;padding-left:70px;">
-                           A world class skilled Nepalese cuisine Chef. 
+                           A world class skilled Nepalese cuisine Chef.
                         </p>
 
 
@@ -54,10 +57,10 @@
 
         </div><!--/.row-->
 
-       
+
         <div class="gap">
-            
-        </div>
-     
-    </section><!--/#about-us-->
+
+        </div>--}}
+
+    </section>--}}<!--/#about-us-->
 @endsection

@@ -36,6 +36,6 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 
     public function applications()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany('App\Application');
     }
 }

@@ -14,8 +14,38 @@
                 <div class="asialink_hotjobs">
                   <!-- <h3> HOT JOBS</h3> -->
 
+                    @if(count($jobs) == 0)
+                        <p>No Jobs Available</p>
+                    @endif
+
+                    @foreach($jobs as $job)
+                        <div class="row">
+                            <div class="asialink_hotjobs1">
+                                {{--<i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i>--}}   {{----star rating-----}}
+
+                                <h4>{{ $job->title }}</h4>
+                                <h5>{{ $job->company }}</h5>
+                                <h5>{{ $job->location }}, {{ $job->country }}</h5>
+                                <h5> Required No: {{ $job->required_no }}</h5>
+                                <h5>Salary: {{ $job->salary }}</h5>
+                                <p>
+                                    {{$job->requirement}}
+                                </p>
+                                <p>
+                                    {{$job->description}}
+                                </p>
+
+                                <span class="input-group-btn">
+                                                <a href="{{ route('apply-online') }}"><button class="btn btn-danger" type="button">Apply NOW</button></a>
+                                            </span>
+                            </div> <!-- end of asialink_1 -->
+                        </div> <!-- end of row -->
+                    @endforeach
+
+                    {{-----------------------------------------------------static jobs--------------------------------------}}
+
 <!-- ############# 1ST ROW ############ -->
-                    <div class="row">
+{{--                    <div class="row">
                         <div class="asialink_hotjobs1">
                             <i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i>
 
@@ -92,37 +122,7 @@
 
 
                         </div> <!-- end of asialink_1 -->        
-                    </div> <!-- end of row -->
-
-
-                    @if(count($jobs) == 0)
-                        <p>No Jobs Available</p>
-                    @endif
-
-                    @foreach($jobs as $job)
-                    <div class="row">
-                        <div class="asialink_hotjobs1">
-                            <i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i>
-
-                            <h4>{{ $job->title }}</h4>
-                            <h5>{{ $job->company }}</h5>
-                            <h5>{{ $job->location }}, {{ $job->country }}</h5>
-                            <h5> Required No: {{ $job->required_no }}</h5>
-                            <h5>Salary: {{ $job->salary }}</h5>
-                            <p>
-                                {{$job->requirement}}
-                            </p>
-                            <p>
-                                {{$job->description}}
-                            </p>
-
-                            <span class="input-group-btn">
-                                                <button class="btn btn-danger" type="button">Apply NOW</button>
-                                            </span>
-                        </div> <!-- end of asialink_1 -->
-                    </div> <!-- end of row -->
-                        @endforeach
-
+                    </div> --}}<!-- end of row -->
 
 
                 </div> <!-- end of asialink_documentation -->    

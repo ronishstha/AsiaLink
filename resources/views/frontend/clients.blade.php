@@ -28,7 +28,18 @@
 
                     <div class="col-md-11">
                         @if(count($clients) == 0)
-                    <div class="view view-first">
+                            <div class="view view-first">
+                                <img src="{{  URL::asset('abudhabi.jpg') }}" />
+                                <div class="mask">
+                                    <h2>No Clients Available</h2>
+                                    <!-- <p>A small traditional village in the lap of the Himalayas.</p>
+                                     <a href="#" class="info">Read More</a> -->
+                                </div>
+                            </div>
+
+                        {{--------------------------------static clients-------------------------}}
+
+                   {{-- <div class="view view-first">
                         <img src="{{ URL::asset('images/package/1.jpg') }}" />
                         <div class="mask">
                             <h2>CHEC</h2>
@@ -110,10 +121,13 @@
                            <!-- <p>A small traditional village in the lap of the Himalayas.</p>
                             <a href="#" class="info">Read More</a> -->
                         </div>
-                    </div>
+                    </div>--}}
                     @endif
 
+                        {{-----------------------------------dyanmic clients------------------------------}}
+
                         @foreach($clients as $client)
+                            @if($client->status == "published")
                                 <div class="view view-first">
                                     <img src="{{ URL::asset('client/' . $client->image) }}" />
                                     <div class="mask">
@@ -122,6 +136,7 @@
                                          <a href="#" class="info">Read More</a> -->
                                     </div>
                                 </div>
+                            @endif
                         @endforeach
                  </div>   <!-- end of col-md-10 -->
 
@@ -141,7 +156,23 @@
                     </div>
                     <div class="gap"></div>
                     <div class="row asialink_jobcate">
-                        <div class="col-md-6">
+
+                        {{---------------------------------------dynamic reviews---------------------------------}}
+
+                        @foreach($reviews as $review)
+                            @if($review->status == "published")
+                            <div class="col-md-6">
+                                <blockquote>
+                                    {!! $review->description !!}
+                                    <small><cite title="Source Title">{{ $review->name }}</cite></small>
+                                </blockquote>
+                            </div>
+                            @endif
+                        @endforeach
+
+                        {{-----------------------------------------static reviews------------------------------------------}}
+
+                        {{--<div class="col-md-6">
                             <blockquote>
                                 <p>Asia Link Services has been providing human resouce to us for years. We have no complains in any ways. They have the best team in recruiting right people in the right place. We wish them all the best. </p>
                                 <small>Mr. Girish Raman, <cite title="Source Title">MD, Alpine Facilties Management</cite></small>
@@ -152,7 +183,7 @@
                                 <p>Recruiting people abroad  had always been hectic with some news laws been imposed in different nationalities. Choosing Asia Link Services has always been a  better decision for us since all the  process and procedures in recruitment and legal issues are settled by the expertise at Asia Link Services.</p>
                                 <small>Mr. Zaafir Ali Khan, <cite title="Source Title">GM, IIBM</cite></small>
                             </blockquote>
-                        </div>
+                        </div>--}}
                     </div>
                 </div>
             </div>

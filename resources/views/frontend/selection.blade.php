@@ -7,8 +7,11 @@
 @section('content')
 
     <section id="terms" class="container">
+        @if($page->status == "published")
+            {!! $page->content !!}
+        @endif
 
-        <div class="row">
+        {{--<div class="row">
             <div class="col-sm-8">
                 <div class="asialink_documentation">
 
@@ -72,7 +75,7 @@
                 <img class="img-responsive asialinkselection-collage" src="{{ URL::asset('images/selection-collage.jpg') }}" alt="Asia Link Services" />
 
             </div> <!-- end of col-sm-4 -->       
-    </div> <!-- end of row -->
+    </div>--}} <!-- end of row -->
       
        
     </section><!--/#terms-->

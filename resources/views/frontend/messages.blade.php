@@ -7,7 +7,12 @@
 @section('content')
 
     <section id="about-us" class="container">
-        <div class="row">
+
+    @if($page->status == "published")
+        {!! $page->content !!}
+    @endif
+
+        {{--<div class="row">
 
 
 
@@ -18,19 +23,19 @@
                         <h4>
                             "A strong focus on customer satisfaction is what differentiates Asia Link Services Pvt Ltd from other companies and helps to ensure long term growth and success."
                         </h4>
-                       
-                     <h4>Meelan Kattel</h4>    
-                         
-                         <h6> Chairman</h6> 
-                       
+
+                     <h4>Meelan Kattel</h4>
+
+                         <h6> Chairman</h6>
+
 
 
                 </div> <!-- end of asialink -->
             </div> <!-- end of col-sm-12 -->
-             
+
              <div class="col-sm-5">
                 <div class="asialink_text">
-                    
+
                         <h4> Namaste </h4>
                         <p>
                         Asia Link Services Pvt Ltd was set up with the core belief offering a true customer focused solutions in the field of Human resources Recruitment from Nepal. </p>
@@ -44,17 +49,17 @@
 
 
                         <h4> Thanking You! </h4>
-                    
+
                 </div>
 
              </div> <!-- end of col-sm-5 -->
-            
-    
+
+
         </div><!--/.row-->
-   
+
     </section><!--/#about-us-->
 
-    <hr>
+    <hr>--}}
 
     <!-- ############### NEW SECTION ########### -->
 

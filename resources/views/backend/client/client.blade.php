@@ -63,7 +63,7 @@
                                     @foreach($clients as $client)
                                         @if($client->status == "published" || $client->status == "unpublished")
                                             <tr>
-                                                <td><a href="{{ route('backend.client.single.client', ['client_id' => $client->id]) }}">{{ $client->title }}</a></td>
+                                                <td><a href="{{ route('backend.client.single.client', ['client_slug' => $client->slug]) }}">{{ $client->title }}</a></td>
                                                 <td><button class="btn-edit"><a href="{{ route('backend.client.get.update', ['client_id' => $client->id]) }}">Edit</a></button></td>
                                                 <td><button class="btn-view"><a href="{{ route('backend.client.single.client', ['client_slug' => $client->slug])  }}">View</a></button></td>
                                                 <td><button class="btn-delete"><a href="{{ route('backend.client.trash', ['client_id' => $client->id]) }}">Delete</a></button></td>

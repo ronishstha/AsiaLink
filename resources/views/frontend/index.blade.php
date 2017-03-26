@@ -7,19 +7,61 @@
 @section('content')
     <section id="main-slider" class="no-margin">
 
-        {{--{{ $banner_no = count($banners) }}
-        {{ $i = 0 }}--}}
+        @php
+        $banner_no = count($banners);
+        $i = 0;
+        @endphp
          <div class="carousel slide wet-asphalt">
             <ol class="carousel-indicators">
-                {{--@for($i = 0; $i <= $banner_no; $i++)
-                    <li data-target="#main-slider" data-slide-to="$i" @if( $i== 0) class="active" @endif></li>
-                @endfor --}}
-                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+
+                {{--<li data-target="#main-slider" data-slide-to="0" class="active"></li>
                 <li data-target="#main-slider" data-slide-to="1"></li>
                 <li data-target="#main-slider" data-slide-to="2"></li>
                 <li data-target="#main-slider" data-slide-to="3"></li>
+                <li data-target="#main-slider" data-slide-to="4"></li>--}}
+
+                {{--@for($i = 0; $i < $banner_no; $i++)
+                    <li data-target="#main-slider" data-slide-to="@php $i @endphp" @if( $i== 0) class="active" @endif></li>
+                @endfor--}}
+
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner">
+
+             {{-------------------------------dynamic banner--------------------------------------}}
+
+         <div class="carousel-inner">
+         @foreach($banners as $banner)
+             @php
+             if($banner->id == 1){
+                 $banner_no = "active";
+                 }
+             else{
+             $banner_no = "nth";
+             }
+             @endphp
+             <div class="item {{ $banner_no }}" style="background-image: url(banner/{{ $banner->image }})">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-sm-12">
+                             <div class="carousel-content centered imscarouseltext">
+                                 <h2 style="font-size:18px;" class="boxed animation animated-item-1">
+                                     {!! $banner->description1 !!}
+                                 </h2>
+                                 <p style="font-size:15px; width:305px;" class="boxed animation animated-item-1">
+                                     {!! $banner->description2 !!}
+                                 </p>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div><!--/.item-->
+         @endforeach
+         </div>
+
+         {{-----------------------static banner---------------------------------------------------------}}
+            {{--<div class="carousel-inner">
                 <div class="item active" style="background-image:url(images/slider/bg1.jpg)">
                     <div class="container">
                         <div class="row">
@@ -56,24 +98,6 @@
                     </div>
                 </div>
 
-                @foreach($banners as $banner)
-                <div class="item" style="background-image: url(banner/{{ $banner->image }})">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="carousel-content centered imscarouseltext">
-                                    <h2 style="font-size:18px;" class="boxed animation animated-item-1">
-                                        {{ $banner->description1 }}
-                                    </h2>
-                                    <p style="font-size:15px; width:305px;" class="boxed animation animated-item-1">
-                                        {{ $banner->description2 }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>N
-                    </div>
-                </div><!--/.item-->
-                @endforeach
                 <div class="item" style="background-image: url(images/slider/bg3.jpg)">
                     <div class="container">
                         <div class="row">
@@ -103,7 +127,7 @@
 
                         </div>
                     </div>
-                </div><!--/.item-->
+                </div>--}}<!--/.item-->
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
         <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
@@ -116,8 +140,6 @@
      
     </section><!--/#main-slider-->
 
-
-    <!--  <img class="img-responsive img-curve2" src="images/curves.png" alt="IMS manpower"/> -->
 
 
 
@@ -132,42 +154,24 @@
 
 
                       <i class="fa fa-spinner fa-3x fa-spin"></i>
-                        <h1> Hot Jobs</h1> 
+                        <h1 aling="center"> Hot Jobs</h1>
 
                     <!-- ########### codes goes in here ####### -->
 
 
-                            <div class="holder">
+                            <div class="holder" style="background-color: lightgrey;border-radius: 3px;">
                                  <ul id="ticker01">
                                      @if(count($jobs) == 0)
-                                        <li><span>10/10/2015</span><a href="#">Loading and Unloading Staffs in Dubai</a></li>
-                                        <li><span>10/10/2015</span><a href="#">Sales Boy & Girls in Qatar</a></li>
-                                        <li><span>10/10/2015</span><a href="#">Cleaners in Malaysia</a></li>
-                                        <li><span>08/10/2015</span><a href="#">Mesh Boys in Dubai</a></li>
-                                        <li><span>08/10/2015</span><a href="#">House maids in Kuwait</a></li>
-                                        <li><span>05/10/2015</span><a href="#">Security Guards in Saudi</a></li>
-                                        <li><span>04/10/2015</span><a href="#">Female cleaners in Dubai</a></li>
-                                        <li><span>04/10/2015</span><a href="#">Coffee makers in Qatar</a></li>
-                                        <li><span>04/10/2015</span><a href="#">Female Security in Abu Dhabi</a></li>
-                                        <li><span>03/10/2015</span><a href="#">Room Boys in Dubai</a></li>
-                                        <li><span>03/10/2015</span><a href="#">Site Supervisor in Saudi Arab</a></li>
-                                        <li><span>01/10/2015</span><a href="#">Store keeper in Saudi</a></li>
-                                         <li><span>10/10/2015</span><a href="#">Loading and Unloading Staffs in Dubai</a></li>
-                                        <li><span>10/10/2015</span><a href="#">Sales Boy & Girls in Qatar</a></li>
-                                        <li><span>10/10/2015</span><a href="#">Cleaners in Malaysia</a></li>
-                                        <li><span>08/10/2015</span><a href="#">Mesh Boys in Dubai</a></li>
-                                        <li><span>08/10/2015</span><a href="#">House maids in Kuwait</a></li>
-                                        <li><span>05/10/2015</span><a href="#">Security Guards in Saudi</a></li>
-                                        <li><span>04/10/2015</span><a href="#">Female cleaners in Dubai</a></li>
-                                        <li><span>04/10/2015</span><a href="#">Coffee makers in Qatar</a></li>
-                                        <li><span>04/10/2015</span><a href="#">Female Security in Abu Dhabi</a></li>
-                                        <li><span>03/10/2015</span><a href="#">Room Boys in Dubai</a></li>
-                                        <li><span>03/10/2015</span><a href="#">Site Supervisor in Saudi Arab</a></li>
-                                        <li><span>01/10/2015</span><a href="#">Store keeper in Saudi</a></li>
+                                         <li>No Hot Jobs places at the moment</li>
                                     @endif
+
+                                     {{-------------------------------------dynamic hotjobs---------------------------------------------}}
+
                                          @foreach($jobs as $job)
                                              <li><span>{{  $job->updated_at }}</span><a href="{{ route('hot-jobs') }}">{{ $job->title }}</a></li>
                                          @endforeach
+
+
                                  </ul>
                             </div>
 
@@ -216,11 +220,11 @@
 
                 <div class="col-md-3">
                    <div class="asialink-imgbuilding">
-                        <img class="img-responsive" src="images/asialink_building.png" alt="Asialink Building" />
+                        <img class="img-responsive" src="{{ URL::asset('images/asialink_building.png') }}" alt="Asialink Building" />
                    </div>
 
-                   <div class="asialink_buildingtext">
-                        <p> The main building of AsiaLink Services is centrally located in the Capital easily accessible from different routes and points.</p>
+                   <div class="asialink_buildingtext" style="background-color: dimgrey;border-radius: 3px;color: black;">
+                        <p style="font-color: black;"> The main building of AsiaLink Services is centrally located in the Capital easily accessible from different routes and points.</p>
 
                    </div>
 
@@ -257,10 +261,15 @@
                         <ul id="scroller">
                               <!--  <li><img src="http://logicbox.net/jquery/simplyscroll/assets/20080608_9N3H5GYL_tb.jpg" width="290" height="200" alt="Firehouse"></li> -->
 
+                            {{------------------------------------Dynamic Content--------------------}}
+
                             @foreach($clients as $client)
                                 <li><img src="{{ URL::asset('client/' . $client->image) }}" width="95" height="73" alt="Maapadma clients"></li>
                             @endforeach
-                            <li><img src="images/clients/c1.jpg" width="95" height="73" alt="Maapadma clients"></li>
+
+                            {{-----------------------------------Static Content-------------------------------------}}
+
+                            {{--<li><img src="images/clients/c1.jpg" width="95" height="73" alt="Maapadma clients"></li>
                                  <li><img src="images/clients/c2.jpg" width="95" height="73" alt="Maapadma clients"></li>
                                   <li><img src="images/clients/c3.jpg" width="95" height="73" alt="Maapadma clients"></li>
                                    <li><img src="images/clients/c4.jpg" width="95" height="73" alt="Maapadma clients"></li>
@@ -269,7 +278,7 @@
                                  <li><img src="images/clients/c7.jpg" width="95" height="73" alt="Maapadma clients"></li>
                                   <li><img src="images/clients/c8.jpg" width="95" height="73" alt="Maapadma clients"></li>
                                    <li><img src="images/clients/c9.jpg" width="95" height="73" alt="Maapadma clients"></li>
-                                    <li><img src="images/clients/c10.jpg" width="95" height="73" alt="Maapadma clients"></li>
+                                    <li><img src="images/clients/c10.jpg" width="95" height="73" alt="Maapadma clients"></li>--}}
 
 
 

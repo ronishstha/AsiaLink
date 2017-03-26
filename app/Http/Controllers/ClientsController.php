@@ -49,9 +49,7 @@ class ClientsController extends Controller
     public function postUpdate(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'image' => 'required',
-            'description' => 'required'
+            'title' => 'required'
         ]);
         $client = Client::findOrFail($request['client_id']);
         $old = $client->image;

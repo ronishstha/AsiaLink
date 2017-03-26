@@ -8,7 +8,11 @@
 
     <section id="terms" class="container">
 
-        <div class="row">
+        @if($page->status == "published")
+            {!! $page->content !!}
+        @endif
+
+        {{--<div class="row">
             <div class="col-sm-12">
                 <div class="asialink_documentation">
 
@@ -50,7 +54,7 @@
 
                 </div> <!-- end of asialink_documentation -->    
             </div> <!-- end of col-sm12 -->        
-    </div> <!-- end of row -->
+    </div> --}}<!-- end of row -->
       
        
     </section><!--/#terms-->

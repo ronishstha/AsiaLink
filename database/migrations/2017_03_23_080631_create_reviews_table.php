@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->enum('status', ['published', 'unpublished', 'trash'])->default('published');
-            $table->string('user_id');
+            $table->integer('user_id');
         });
     }
 

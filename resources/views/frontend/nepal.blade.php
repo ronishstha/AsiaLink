@@ -8,7 +8,11 @@
 
 
     <section id="about-us" class="container">
-        <div class="row">
+
+        @if($page->status == "published")
+            {!! $page->content !!}
+        @endif
+        {{--<div class="row">
             <div class="col-sm-6">
               
                 <p style="text-align:justify;">
@@ -152,7 +156,7 @@ Hindu customs, may identify themselves as both Hindu as well as Buddhists which 
             </div><!--/.col-sm-6-->
         </div><!--/.row-->
 
-        <div class="gap"></div>
+        <div class="gap"></div>--}}
 
 
 

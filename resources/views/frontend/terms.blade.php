@@ -7,8 +7,11 @@
 @section('content')
 
     <section id="terms" class="container">
+        @if($page->status == "published")
+            {!! $page->content !!}
+        @endif
 
-        <div class="row">
+        {{--<div class="row">
             <div class="col-sm-12">
                 <div class="asialink_documentation">
 
@@ -67,7 +70,7 @@ as security threat, the employer may replace the worker. The replacement of the 
 
                 </div> <!-- end of asialink_documentation -->    
             </div> <!-- end of col-sm12 -->        
-    </div> <!-- end of row -->
+    </div>--}} <!-- end of row -->
       
        
     </section><!--/#terms-->

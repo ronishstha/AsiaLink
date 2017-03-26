@@ -1,10 +1,26 @@
 @extends('frontend.layouts.master')
 
+@section('style')
+    <link href="{{ URL::asset('/assets/css/table.css') }}" rel="stylesheet"/>
+@endsection
+
 @section('title')
     Clients | AsiaLink Services
 @endsection
 
 @section('content')
+    @if(count($errors) > 0)
+        <section class="info-box fail">
+            @foreach($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        </section>
+    @endif
+    @if(Session::has('success'))
+        <section class="info-box success">
+            {{ Session::get('success') }}
+        </section>
+    @endif
     <section id="contact-page" class="container">
 
         <div class="row">
@@ -25,17 +41,18 @@
             <div class="col-sm-8 asialink_contacts">
                 <h4>Please fill in the form and We shall get back to you shortly.</h4>
                 <div class="status alert alert-success" style="display: none"></div>
-                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
+                <form method="post" action="{{ route('message') }}">
+                    {{ csrf_field() }}
                     <div class="row">
                         <div class="col-sm-5">
                             <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="First Name">
+                                <input type="text" class="form-control" required="required" name="first_name" id="first_name" placeholder="First Name">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Last Name">
+                                <input type="text" class="form-control" required="required" name="last_name" id="last_name" placeholder="Last Name">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Email address">
+                                <input type="text" class="form-control" required="required" name="email" id="email" placeholder="Email address">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-lg">Send Message</button>

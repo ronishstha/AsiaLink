@@ -7,6 +7,7 @@
 @section('content')
    
     <section id="services">
+
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -173,18 +174,16 @@
                     </div>
                     <div class="gap"></div>
                     <div class="row asialink_jobcate">
-                        <div class="col-md-6 ">
-                            <blockquote>
-                                <p>I.M.S Manpower has been providing human resouce to us for years. We have no complains in any ways. They have the best team in recruiting right people in the right place. We wish them all the best. </p>
-                                <small>Mr. Girish Raman, <cite title="Source Title">MD, Alpine Facilties Management</cite></small>
-                            </blockquote>
-                        </div>
-                        <div class="col-md-6">
-                            <blockquote>
-                                <p>Recruiting people abroad  had always been hectic with some news laws been imposed in different nationalities. Choosing I.M.S Manpower has always been a  better decision for us since all the  process and procedures in recruitment and legal issues are settled by the expertise at Asia Link Services.</p>
-                                <small>Mr. Zaafir Ali Khan, <cite title="Source Title">GM, IIBM</cite></small>
-                            </blockquote>
-                        </div>
+                        @foreach($reviews as $review)
+                            @if($review->status == "published")
+                                <div class="col-md-6">
+                                    <blockquote>
+                                        {!! $review->description !!}
+                                        <small><cite title="Source Title">{{ $review->name }}</cite></small>
+                                    </blockquote>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
 
                 </div>
