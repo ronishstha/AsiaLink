@@ -154,15 +154,10 @@
 
 
 <script src="{{ URL::asset('js/jquery.js') }}"></script>
-<script src="js/jquery.js"></script>
 <script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
-<script src="js/bootstrap.min.js"></script>
 <script src="{{ URL::asset('js/jquery.prettyPhoto.js') }}"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="{{ URL::asset('js/main.js') }}js/main.js"></script>
-<script src="js/main.js"></script>
+<script src="{{ URL::asset('js/main.js') }}"></script>
 <script src="{{ URL::asset('js/news2/news2.js') }}"></script>
-<script src="js/news2/news2.js"></script>
 
 </body>
 </html>

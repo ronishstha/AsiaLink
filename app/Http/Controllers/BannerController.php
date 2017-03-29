@@ -115,9 +115,4 @@ class BannerController extends Controller
         $banner->update();
         return redirect()->route('backend.banner');
     }
-
-    public function getImage($filename){
-        $file = Storage::disk('local')->get($filename);
-        return new Response($file, 200);
-    }
 }

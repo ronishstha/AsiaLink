@@ -14,32 +14,30 @@
                 <div class="asialink_hotjobs">
                   <!-- <h3> HOT JOBS</h3> -->
 
-                    @if(count($jobs) == 0)
-                        <p>No Jobs Available</p>
-                    @endif
 
-                    @foreach ($jobs as $job)
-                        @if ($job->status == "published")
+
+
                         <div class="row">
                             <div class="asialink_hotjobs1">
                                 {{--<i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i>--}}   {{----star rating-----}}
 
-                                <h4>{{ $job->title }}</h4>
-                                <h5>{{ $job->company }}</h5>
-                                <h5>{{ $job->location }}, {{ $job->country }}</h5>
-                                <h5> Required No: {{ $job->required_no }}</h5>
-                                <h5>Salary: {{ $job->salary }}</h5>
+                                <h4>{{ $demand->jobcategory->title }}</h4>
+                                <h5>{{ $demand->title }}</h5>
+
+                                <h5>{{ $demand->company->title }}</h5>
+                                <h5>{{ $demand->company->location }}, {{ $demand->company->country }}</h5>
+                                <h5> Required No: {{ $demand->required_no }}</h5>
+                                <h5>Salary: {{ $demand->salary }}</h5>
                                 <p>
-                                    {!! $job->requirement !!}
-                                </p>
-                                <p>
-                                    {!! $job->description !!}
+                                    {!! $demand->description !!}
                                 </p>
 
+                                <span class="input-group-btn">
+                                                <a href="{{ route('apply-online') }}"><button class="btn btn-danger" type="button">Apply NOW</button></a>
+                                            </span>
                             </div> <!-- end of asialink_1 -->
                         </div> <!-- end of row -->
-                        @endif
-                    @endforeach
+
 
                     {{-----------------------------------------------------static jobs--------------------------------------}}
 

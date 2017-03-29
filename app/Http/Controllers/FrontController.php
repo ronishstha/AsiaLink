@@ -9,7 +9,9 @@ use App\Client;
 use App\Banner;
 use App\Review;
 use App\Page;
-use App\Customer;
+use App\Company;
+use App\Demand;
+use App\Jobcategory;
 use Mail;
 
 
@@ -55,7 +57,7 @@ class FrontController extends Controller
             'email' => $email,
             'message' => $message], function($msg) use($first_name, $email){
             $msg->from($email, $first_name);
-            $msg->to('info@asialinkservices.com.np', 'Admin');
+            $msg->to('stharonish@gmail.com', 'Admin');
             $msg->subject('Message from User');
         });
         return redirect()->route('contacts')->with(['success' => 'Successfully posted']);
@@ -96,9 +98,27 @@ class FrontController extends Controller
         return view('frontend.nepal', ['page' => $page]);
     }
 
-    public function getForm(){
-        $jobs = Job::all();
-        return view('frontend.online_form', ['jobs' => $jobs]);
+    public function getForm($company_id){
+        $company = Company::where('id', $company_id)->first();
+        $jobcategories = Jobcategory::all();
+        return view('frontend.online_form', ['company' => $company, 'jobcategories' => $jobcategories]);
+    }
+
+    public function getDemands(){
+        $companies = Company::all();
+        $demands = Demand::all();
+        $jobcategories = Jobcategory::all();
+        return view ('frontend.demands', ['companies' => $companies, 'demands' => $demands, 'jobcategories' => $jobcategories] );
+    }
+
+    public function findDemandName(Request $request){
+        $data = Demand::select('title')->where('jobcategory_id',$request->id)->get();
+        return response()->json($data);//then sent this data to ajax success
+    }
+
+    public function getSingle($demand_slug){
+        $demand = Demand::where('slug', $demand_slug)->first();
+        return view ('frontend.singledemand', ['demand' => $demand]);
     }
 
     public function postForm(Request $request)
@@ -107,51 +127,27 @@ class FrontController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'nationality' => 'required',
-            'religion' => 'required',
-            'gender' => 'required',
             'passport_number' => 'required',
-            'pp_issue_date' => 'required',
-            'pp_expiry_date' => 'required',
-            'blood_group' => 'required',
-            'height' => 'required',
-            'weight' => 'required',
             'father_name' => 'required',
+            'mother_name' => 'required',
             'marital_status' => 'required',
-            'tole' => 'required',
-            'vdc_municipality' => 'required',
-            'district' => 'required',
-            'zone' => 'required',
-            'country' => 'required',
             'mobile' => 'required',
             'email' => 'required',
-            'academic_qualification' => 'required',
-            'work_experience' => 'required',
             'photo' => 'required',
-            'citizenship' => 'required',
             'passport' => 'required',
-            'slc_certificate' => 'required',
-            'slc_character' => 'required',
-            'english_speaking' => 'required',
-            'english_reading' => 'required',
-            'malay_speaking' => 'required',
-            'malay_reading' => 'required',
-            'hindi_speaking' => 'required',
-            'hindi_reading' => 'required',
-            'job' => 'required'
+            'jobcategory' => 'required'
         ]);
 
         $first_name = $request['first_name'];
-
         $email = $request['email'];
         $last_name = $request['last_name'];
-
-       $middle_name = $request['middle_name'];
+        $middle_name = $request['middle_name'];
         $nationality = $request['nationality'];
         $religion = $request['religion'];
         $gender = $request['gender'];
-        $passport_number = $request['$passport_number'];
+        $passport_number = $request['passport_number'];
         $pp_issue_date = $request['pp_issue_date'];
-        $pp_expiry_date = $request['pp_expirty_date'];
+        $pp_expiry_date = $request['pp_expirt_date'];
         $blood_group = $request['blood_group'];
         $height = $request['height'];
         $weight = $request['weight'];
@@ -169,7 +165,6 @@ class FrontController extends Controller
         $country = $request['country'];
         $mobile = $request['mobile'];
         $landline = $request['landline'];
-
         $academic_qualification = $request['academic_qualification'];
         $work_experience = $request['work_experience'];
         $technical_training = $request['technical_training'];
@@ -179,25 +174,20 @@ class FrontController extends Controller
         $citizenship = $request->file('citizenship');
         $passport = $request->file('passport');
 
-        $experience_letter = $request->file('experience_letter');
+        $experience_letter1 = $request->file('experience_letter1');
+        $experience_letter2 = $request->file('experience_letter2');
+        $experience_letter3 = $request->file('experience_letter3');
+        $experience_letter4 = $request->file('experience_letter4');
 
         $ref_letter = $request->file('ref_letter');
-
         $slc_certificate = $request->file('slc_certificate');
         $slc_character = $request->file('slc_character');
-
         $inter_certificate = $request->file('inter_certificate');
-
         $inter_character = $request->file('inter_character');
-
         $bachelor_certificate = $request->file('bachelor_certificate');
-
         $bachelor_character = $request->file('bachelor_character');
-
         $master_certificate = $request->file('master_certificate');
-
         $master_character = $request->file('master_character');
-
         $recommendation_letter = $request->file('recommendation_letter');
 
         //end of files
@@ -207,7 +197,16 @@ class FrontController extends Controller
         $malay_reading = $request['malay_reading'];
         $hindi_speaking = $request['hindi_speaking'];
         $hindi_reading = $request['hindi_reading'];
-        $job = $request['job'];
+        $nepali_speaking = $request['nepali_speaking'];
+        $nepali_reading = $request['nepali_reading'];
+        $arabic_speaking = $request['arabic_speaking'];
+        $arabic_reading = $request['arabic_reading'];
+        $other_language = $request['other_language'];
+        $category = $request['jobcategory'];
+        $jobcat = Jobcategory::where('id', $category)->first();
+        $company = $jobcat->company->title;
+        $jobcategory = $jobcat->title;
+        $demand = $request['demand'];
 
         Mail::send('frontend.form_message', [
             'first_name' => $first_name,
@@ -237,15 +236,16 @@ class FrontController extends Controller
             'country' => $country,
             'mobile' => $mobile,
             'landline' => $landline,
-
             'academic_qualification' => $academic_qualification,
             'work_experience' => $work_experience,
             'technical_training' => $technical_training,
-
             'photo' => $photo,
             'citizenship' => $citizenship,
             'passport' => $passport,
-            'experience_letter' => $experience_letter,
+            'experience_letter1' => $experience_letter1,
+            'experience_letter2' => $experience_letter2,
+            'experience_letter3' => $experience_letter3,
+            'experience_letter4' => $experience_letter4,
             'ref_letter' => $ref_letter,
             'slc_certificate' => $slc_certificate,
             'slc_character' => $slc_character,
@@ -256,21 +256,30 @@ class FrontController extends Controller
             'master_certificate' => $master_certificate,
             'master_character' => $master_character,
             'recommendation_letter' => $recommendation_letter,
-
             'english_speaking' => $english_speaking,
             'english_reading' => $english_reading,
             'malay_speaking' => $malay_speaking,
             'malay_reading' => $malay_reading,
             'hindi_speaking' => $hindi_speaking,
             'hindi_reading' => $hindi_reading,
-            'job' => $job
+            'nepali_speaking' => $nepali_speaking,
+            'nepali_reading' => $nepali_reading,
+            'arabic_speaking' => $arabic_speaking,
+            'arabic_reading' => $arabic_reading,
+            'other_language' => $other_language,
+            'jobcategory' => $jobcategory,
+            'demand' => $demand,
+            'company' => $company
         ], function ($msg) use (
             $first_name,
             $email,
             $photo,
             $citizenship,
             $passport,
-            $experience_letter,
+            $experience_letter1,
+            $experience_letter2,
+            $experience_letter3,
+            $experience_letter4,
             $ref_letter,
             $slc_certificate,
             $slc_character,
@@ -283,28 +292,55 @@ class FrontController extends Controller
             $recommendation_letter
         ) {
             $msg->from($email, $first_name);
-            $msg->to('info@asialinkservices.com.np', 'AsiaLink');
+            $msg->to('stharonish@gmail.com', 'AsiaLink');
             $msg->subject('New Online Application Received');
 
-             $msg->attach($photo->getRealPath(), [
-            'as' => $photo->getClientOriginalName(),
-            'mime' => $photo->getMimeType()
-        ]);
+            if(!empty($photo)) {
+                $msg->attach($photo->getRealPath(), [
+                    'as' => $photo->getClientOriginalName(),
+                    'mime' => $photo->getMimeType()
+                ]);
+            }
 
-            $msg->attach($citizenship->getRealPath(), [
-                'as' => $citizenship->getClientOriginalName(),
-                'mime' => $citizenship->getMimeType()
-            ]);
+            if(!empty($citizenship)) {
+                $msg->attach($citizenship->getRealPath(), [
+                    'as' => $citizenship->getClientOriginalName(),
+                    'mime' => $citizenship->getMimeType()
+                ]);
+            }
 
-            $msg->attach($passport->getRealPath(), [
-                 'as' => $passport->getClientOriginalName(),
-                 'mime' => $passport->getMimeType()
-            ]);
+            if(!empty($passport)) {
+                $msg->attach($passport->getRealPath(), [
+                    'as' => $passport->getClientOriginalName(),
+                    'mime' => $passport->getMimeType()
+                ]);
+            }
 
-            if(!empty($experience_letter)){
-                $msg->attach($experience_letter->getRealPath(), [
-                    'as' => $experience_letter->getClientOriginalName(),
-                    'mime' => $experience_letter->getMimeType()
+            if(!empty($experience_letter1)){
+                $msg->attach($experience_letter1->getRealPath(), [
+                    'as' => $experience_letter1->getClientOriginalName(),
+                    'mime' => $experience_letter1->getMimeType()
+                ]);
+            }
+
+            if(!empty($experience_letter2)){
+                $msg->attach($experience_letter2->getRealPath(), [
+                    'as' => $experience_letter2->getClientOriginalName(),
+                    'mime' => $experience_letter2->getMimeType()
+                ]);
+            }
+
+            if(!empty($experience_letter3)){
+                $msg->attach($experience_letter3->getRealPath(), [
+                    'as' => $experience_letter3->getClientOriginalName(),
+                    'mime' => $experience_letter3->getMimeType()
+                ]);
+            }
+
+            if(!empty($experience_letter4)){
+                $msg->attach($experience_letter4->getRealPath(), [
+                    'as' => $experience_letter4->getClientOriginalName(),
+                    'mime' => $experience_letter4->getMimeType()
                 ]);
             }
 
@@ -315,15 +351,19 @@ class FrontController extends Controller
                 ]);
             }
 
-            $msg->attach($slc_certificate->getRealPath(), [
-                'as' => $slc_certificate->getClientOriginalName(),
-                'mime' => $slc_certificate->getMimeType()
-            ]);
+            if(!empty($slc_certificate)) {
+                $msg->attach($slc_certificate->getRealPath(), [
+                    'as' => $slc_certificate->getClientOriginalName(),
+                    'mime' => $slc_certificate->getMimeType()
+                ]);
+            }
 
-            $msg->attach($slc_character->getRealPath(), [
-                'as' => $slc_character->getClientOriginalName(),
-                'mime' => $slc_character->getMimeType()
-            ]);
+            if (!empty($slc_character)) {
+                $msg->attach($slc_character->getRealPath(), [
+                    'as' => $slc_character->getClientOriginalName(),
+                    'mime' => $slc_character->getMimeType()
+                ]);
+            }
 
             if(!empty($inter_certificate)){
                 $msg->attach($inter_certificate->getRealPath(), [
@@ -371,10 +411,8 @@ class FrontController extends Controller
             }
 
 
-
-
         });
-        return redirect()->route('apply-online')->with(['success' => 'Successfully posted']);
+        return redirect()->route('demands')->with(['success' => 'Successfully posted']);
     }
 
 }

@@ -27,7 +27,7 @@ class UserController extends Controller
         if(!Auth::attempt(['email' => $request['email'], 'password' => $request['password']])){
             return redirect()->back()->with(['fail' => 'Name and password do not match']);
         }
-        return redirect()->route('backend.dashboard');
+        return redirect()->route('backend.pages');
     }
 
     public function changePassword(Request $request){

@@ -16,7 +16,7 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="orange">
-                            <h4 class="title">Banner Trash</h4>
+                            <h4 class="title">Job Category Trash</h4>
                             <p class="category"></p>
                         </div>
                         <div class="card-content table-responsive">
@@ -25,9 +25,9 @@
                                     $count = 0;
                                     $i = 0;
                                 @endphp
-                                @foreach($banners as $banner)
+                                @foreach($jobcategories as $jobcategory)
                                     @php
-                                        if($banner->status == "trash"){
+                                        if($jobcategory->status == "trash"){
                                             $i += 1;
                                     }
                                     @endphp
@@ -37,21 +37,21 @@
                                 @else
                                     <thead class="text-warning">
                                     <th>title</th>
+                                    <th>company</th>
                                     <th>deleted by</th>
-                                    <th>view</th>
                                     <th>restore</th>
                                     <th>delete</th>
                                     </thead>
 
-                                    @foreach($banners as $banner)
-                                        @if($banner->status == "trash")
+                                    @foreach($jobcategories as $jobcategory)
+                                        @if($jobcategory->status == "trash")
                                             <tbody>
                                             <tr>
-                                                <td>{{ $banner->title }}</td>
-                                                <td>{{ $banner->user->name }}</td>
-                                                <td><button class="btn-view"><a href="{{ route('backend.banner.single.banner', ['banner_slug' => $banner->slug]) }}">View</a></button></td>
-                                                <td><button class="btn-edit"><a href="{{ route('backend.banner.restore', ['banner_id' => $banner->id]) }}">Restore</a></button></td>
-                                                <td><button class="btn-delete"><a href="{{ route('backend.banner.delete', ['banner_id' => $banner->id]) }}">Delete</a></button></td>
+                                                <td>{{ $jobcategory->title }}</td>
+                                                <td>{{ $jobcategory->company->title }}</td>
+                                                <td>{{ $jobcategory->user->name }}</td>
+                                                <td><button class="btn-edit"><a href="{{ route('backend.jobcategory.restore', ['jobcategory_id' => $jobcategory->id]) }}">Restore</a></button></td>
+                                                <td><button class="btn-delete"><a href="{{ route('backend.jobcategory.delete', ['jobcategory_id' => $jobcategory->id]) }}">Delete</a></button></td>
                                             </tr>
                                             </tbody>
                                         @endif

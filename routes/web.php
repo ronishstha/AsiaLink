@@ -12,7 +12,6 @@
 */
 
 
-
 Route::get('/', [
     'uses' => 'FrontController@getHome',
     'as'   => 'home'
@@ -27,6 +26,9 @@ Route::post('form', [
     'uses' => 'FrontController@postForm',
     'as'   => 'form'
 ]);
+
+Route::get('/findDemandName','FrontController@findDemandName');
+
 
 Route::get('about-us', [
     'uses' => 'FrontController@getAbout',
@@ -53,10 +55,11 @@ Route::get('terms-conditions', [
     'as'  => 'terms'
 ]);
 
-Route::get('apply-online', [
+Route::get('apply-online/{company_id?}', [
     'uses' => 'FrontController@getForm',
     'as'   => 'apply-online'
 ]);
+
 
 Route::get('nepalese-workers', [
     'uses' => 'FrontController@getNepalese_Workers',
@@ -85,9 +88,15 @@ Route::get('contacts', function(){
     return view('frontend.contacts');
 })->name('contacts');
 
-Route::get('demands', function(){
-    return view('frontend.demands');
-})->name('demands');
+Route::get('demands', [
+    'uses' => 'FrontController@getDemands',
+    'as' => 'demands'
+]);
+
+Route::get('demands/{demand_slug}', [
+    'uses' => 'FrontController@getSingle',
+    'as'   => 'single'
+]);
 
 Route::get('download-application', [
     'uses' => "FrontController@getApplication",
@@ -417,64 +426,223 @@ Route::group(['prefix' => 'admin',
 
 
 //--------------------------application route----------------------------------
-Route::get('application', [
-    'uses' => 'ApplicationsController@getApplication',
-    'as' => 'backend.application'
-]);
+    Route::get('application', [
+        'uses' => 'ApplicationsController@getApplication',
+        'as' => 'backend.application'
+    ]);
 
-Route::get('application/create', [
-    'uses' => 'ApplicationsController@getCreateApplication',
-    'as' => 'backend.application.get.create'
-]);
+    Route::get('application/create', [
+        'uses' => 'ApplicationsController@getCreateApplication',
+        'as' => 'backend.application.get.create'
+    ]);
 
-Route::post('application/create', [
-    'uses' => 'ApplicationsController@postCreateApplication',
-    'as' => 'backend.application.post.create'
-]);
+    Route::post('application/create', [
+        'uses' => 'ApplicationsController@postCreateApplication',
+        'as' => 'backend.application.post.create'
+    ]);
 
-Route::get('application/edit/{application_id}', [
-    'uses' => 'ApplicationsController@getUpdate',
-    'as' => 'backend.application.get.update'
-]);
+    Route::get('application/edit/{application_id}', [
+        'uses' => 'ApplicationsController@getUpdate',
+        'as' => 'backend.application.get.update'
+    ]);
 
-Route::post('application/update', [
-    'uses' => 'ApplicationsController@postUpdate',
-    'as' => 'backend.application.post.update'
-]);
+    Route::post('application/update', [
+        'uses' => 'ApplicationsController@postUpdate',
+        'as' => 'backend.application.post.update'
+    ]);
 
-Route::get('application/delete/{application_id}', [
-    'uses' => 'ApplicationsController@getDelete',
-    'as' => 'backend.application.delete'
-]);
+    Route::get('application/delete/{application_id}', [
+        'uses' => 'ApplicationsController@getDelete',
+        'as' => 'backend.application.delete'
+    ]);
 
-Route::get('application/single/{application_slug}', [
-    'uses' => 'ApplicationsController@getSingleApplication',
-    'as' => 'backend.application.single.application'
-]);
+    Route::get('application/single/{application_slug}', [
+        'uses' => 'ApplicationsController@getSingleApplication',
+        'as' => 'backend.application.single.application'
+    ]);
 
-Route::get('application/trash/{application_id}', [
-    'uses' => 'ApplicationsController@getTrash',
-    'as' => 'backend.application.trash'
-]);
+    Route::get('application/trash/{application_id}', [
+        'uses' => 'ApplicationsController@getTrash',
+        'as' => 'backend.application.trash'
+    ]);
 
-Route::get('application/trash', [
-    'uses' => 'ApplicationsController@DeleteForever',
-    'as' => 'backend.application.delete.page'
-]);
+    Route::get('application/trash', [
+        'uses' => 'ApplicationsController@DeleteForever',
+        'as' => 'backend.application.delete.page'
+    ]);
 
-Route::get('application/restore/{application_id}', [
-    'uses' => 'ApplicationsController@Restore',
-    'as' => 'backend.application.restore'
-]);
+    Route::get('application/restore/{application_id}', [
+        'uses' => 'ApplicationsController@Restore',
+        'as' => 'backend.application.restore'
+    ]);
 
-Route::get('application/{filename}', [
-    'uses' => 'ApplicationsController@getImage',
-    'as' => 'backend.application.image'
-]);
+//----------------------end of application route---------------------
 
-//----------------------end of job route---------------------
+//--------------------------application route----------------------------------
+    Route::get('company', [
+        'uses' => 'CompaniesController@getCompany',
+        'as' => 'backend.company'
+    ]);
 
-Route::get('logout', [
+    Route::get('company/create', [
+        'uses' => 'CompaniesController@getCreateCompany',
+        'as' => 'backend.company.get.create'
+    ]);
+
+    Route::post('company/create', [
+        'uses' => 'CompaniesController@postCreateCompany',
+        'as' => 'backend.company.post.create'
+    ]);
+
+    Route::get('company/edit/{company_id}', [
+        'uses' => 'CompaniesController@getUpdate',
+        'as' => 'backend.company.get.update'
+    ]);
+
+    Route::post('company/update', [
+        'uses' => 'CompaniesController@postUpdate',
+        'as' => 'backend.company.post.update'
+    ]);
+
+    Route::get('company/delete/{company_id}', [
+        'uses' => 'CompaniesController@getDelete',
+        'as' => 'backend.company.delete'
+    ]);
+
+    Route::get('company/single/{company_slug}', [
+        'uses' => 'CompaniesController@getSingleCompany',
+        'as' => 'backend.company.single.company'
+    ]);
+
+    Route::get('company/trash/{company_id}', [
+        'uses' => 'CompaniesController@getTrash',
+        'as' => 'backend.company.trash'
+    ]);
+
+    Route::get('company/trash', [
+        'uses' => 'CompaniesController@DeleteForever',
+        'as' => 'backend.company.delete.page'
+    ]);
+
+    Route::get('company/restore/{company_id}', [
+        'uses' => 'CompaniesController@Restore',
+        'as' => 'backend.company.restore'
+    ]);
+
+//----------------------end of company route---------------------
+
+//--------------------------demand route----------------------------------
+    Route::get('demand', [
+        'uses' => 'DemandsController@getDemand',
+        'as' => 'backend.demand'
+    ]);
+
+    Route::get('demand/create', [
+        'uses' => 'DemandsController@getCreateDemand',
+        'as' => 'backend.demand.get.create'
+    ]);
+
+    Route::post('demand/create', [
+        'uses' => 'DemandsController@postCreateDemand',
+        'as' => 'backend.demand.post.create'
+    ]);
+
+    Route::get('demand/edit/{demand_id}', [
+        'uses' => 'DemandsController@getUpdate',
+        'as' => 'backend.demand.get.update'
+    ]);
+
+    Route::post('demand/update', [
+        'uses' => 'DemandsController@postUpdate',
+        'as' => 'backend.demand.post.update'
+    ]);
+
+    Route::get('demand/delete/{demand_id}', [
+        'uses' => 'DemandsController@getDelete',
+        'as' => 'backend.demand.delete'
+    ]);
+
+    Route::get('demand/single/{demand_slug}', [
+        'uses' => 'DemandsController@getSingleDemand',
+        'as' => 'backend.demand.single.demand'
+    ]);
+
+    Route::get('demand/trash/{demand_id}', [
+        'uses' => 'DemandsController@getTrash',
+        'as' => 'backend.demand.trash'
+    ]);
+
+    Route::get('demand/trash', [
+        'uses' => 'DemandsController@DeleteForever',
+        'as' => 'backend.demand.delete.page'
+    ]);
+
+    Route::get('demand/restore/{demand_id}', [
+        'uses' => 'DemandsController@Restore',
+        'as' => 'backend.demand.restore'
+    ]);
+
+
+
+    Route::get('/findJobcategoryName','DemandsController@findJobcategoryName');
+
+//----------------------end of demand route---------------------
+
+//--------------------------jobcategory route----------------------------------
+    Route::get('jobcategory', [
+        'uses' => 'JobcategoriesController@getJobcategory',
+        'as' => 'backend.jobcategory'
+    ]);
+
+    Route::get('jobcategory/create', [
+        'uses' => 'JobcategoriesController@getCreateJobcategory',
+        'as' => 'backend.jobcategory.get.create'
+    ]);
+
+    Route::post('jobcategory/create', [
+        'uses' => 'JobcategoriesController@postCreateJobcategory',
+        'as' => 'backend.jobcategory.post.create'
+    ]);
+
+    Route::get('jobcategory/edit/{jobcategory_id}', [
+        'uses' => 'JobcategoriesController@getUpdate',
+        'as' => 'backend.jobcategory.get.update'
+    ]);
+
+    Route::post('jobcategory/update', [
+        'uses' => 'JobcategoriesController@postUpdate',
+        'as' => 'backend.jobcategory.post.update'
+    ]);
+
+    Route::get('jobcategory/delete/{jobcategory_id}', [
+        'uses' => 'JobcategoriesController@getDelete',
+        'as' => 'backend.jobcategory.delete'
+    ]);
+
+    Route::get('jobcategory/single/{jobcategory_slug}', [
+        'uses' => 'JobcategoriesController@getSingleJobcategory',
+        'as' => 'backend.jobcategory.single.jobcategory'
+    ]);
+
+    Route::get('jobcategory/trash/{jobcategory_id}', [
+        'uses' => 'JobcategoriesController@getTrash',
+        'as' => 'backend.jobcategory.trash'
+    ]);
+
+    Route::get('jobcategory/trash', [
+        'uses' => 'JobcategoriesController@DeleteForever',
+        'as' => 'backend.jobcategory.delete.page'
+    ]);
+
+    Route::get('jobcategory/restore/{jobcategory_id}', [
+        'uses' => 'JobcategoriesController@Restore',
+        'as' => 'backend.jobcategory.restore'
+    ]);
+
+//----------------------end of jobcategory route---------------------
+
+
+    Route::get('logout', [
     'uses' => 'UserController@getLogout',
     'as'   => 'admin.logout'
 ]);

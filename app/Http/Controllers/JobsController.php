@@ -28,12 +28,12 @@ class JobsController extends Controller
             'salary' => 'required',
             'location' => 'required',
             'country' => 'required',
-            'requirement' => 'requirement',
+            'requirement' => 'required',
             'required_no' => 'required'
         ]);
 
         $job = new Job();
-        if(!empty(($request)->file('image'))){
+        if(!empty($request->file('image'))){
             $file = $request->file('image');
             $uploadPath = public_path() . '/jobs';
             $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();

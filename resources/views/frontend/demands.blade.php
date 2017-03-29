@@ -5,143 +5,180 @@
 @endsection
 
 @section('content')
-    
-    <section id="title" class="imsbg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h1>Demands</h1>
-                    <p>I.M.S Manpower is competent enough to supply the demands of all kinds of human resources across the globe, hence making the right place for the right candidate and the employers. </p>
+  
+
+    <section id="terms" class="container">
+
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="asialink_hotjobs">
+                  <!-- <h3> HOT JOBS</h3> -->
+
+                    @if(count($companies) == 0)
+                        <p>No Companies Available</p>
+                    @endif
+
+                    @foreach ($companies as $company)
+                        @if ($company->status == "published")
+                        <div class="row">
+                            <div class="asialink_hotjobs1">
+                                {{--<i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i>--}}   {{----star rating-----}}
+
+
+                                <h2><strong>{{ $company->title }}</strong></h2>
+                                <h5>{{ $company->location }}, {{ $company->country }}</h5>
+                                @php
+                                    $count = 0;
+                                    foreach($jobcategories as $jobcategory){
+                                        if($jobcategory->company_id == $company->id){
+                                            $count += 1;
+                                        }
+                                    }
+                                @endphp
+                                @if($count == 0)
+                                    <p>No Jobs Available</p>
+                                @endif
+                                @foreach($jobcategories as $jobcategory)
+                                    @if($jobcategory->company_id == $company->id)
+                                        @if($jobcategory->status == "published")
+                                            <h3><strong>{{ $jobcategory->title }}</strong></h3>
+                                            @php
+                                                $count2 = 0;
+                                                foreach($demands as $demand){
+                                                    if($demand->jobcategory_id == $jobcategory->id){
+                                                        $count2 += 1;
+                                                    }
+                                                }
+                                            @endphp
+                                            @if($count2 == 0)
+                                                <p>No demands available</p>
+                                            @endif
+                                            @foreach($demands as $demand)
+                                                @if($demand->jobcategory_id == $jobcategory->id)
+                                                    @if($demand->status == "published")
+                                                        <h4>- {{ $demand->title }}</h4>
+                                                        <h5>  Required No: {{ $demand->required_no }}</h5>
+                                                        <h5>  Salary: {{ $demand->salary }}</h5>
+                                                        <span class="input-group-btn">
+                                                <a href="{{ route('apply-online', ['company_id' => $demand->company->id]) }}"><button class="btn btn-danger" type="button">Apply NOW</button></a>
+                                                <a href="{{ route('single', ['demand_slug' => $demand->slug]) }}"><button class="btn btn-info" type="button">Details</button></a>
+                                            </span>
+                                                    @endif
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    @endif
+                                @endforeach
+                            </div> <!-- end of asialink_1 -->
+                        </div> <!-- end of row -->
+                        @endif
+                    @endforeach
+
+                    {{-----------------------------------------------------static jobs--------------------------------------}}
+
+<!-- ############# 1ST ROW ############ -->
+{{--                    <div class="row">
+                        <div class="asialink_hotjobs1">
+                            <i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i>
+
+                            <h4>Storekeeper</h4>
+                                <h5> Al Shirawi Enterprises</h5>
+                                    <h5> Dubai, U.A.E</h5>
+                                        <h5> Required No: 10</h5>   
+                                            <h5>Salary: AED 1500 per month</h5> 
+                                            <p>
+                                                This position will require facilitating the physical and time consuming aspects of storekeeping that allows the Storekeeper space to facilitate proper administration.
+                                            </p>
+
+                                            <p>
+                                                All candidates will have strong organization skills, ability to work effectively in a difficult environment and be flexible in demanding situations. You will have proficiency in English and good interpersonal and team working skills. Your commitment to the values including gender equity in all that we do is essential.   
+                                            </p>
+
+                                             <span class="input-group-btn">
+                                                <button class="btn btn-danger" type="button">Apply NOW</button>
+                                            </span>
+
+
+                        </div> <!-- end of asialink_1 -->        
+                    </div> <!-- end of row -->                
+
+<!-- ############### 2ND ROW 3  -->
+
+                    <div class="row">
+                        <div class="asialink_hotjobs2">
+                            <i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i>
+
+                            <h4>Sales</h4>
+                                <h5> AlShaya Enterprises </h5>
+                                    <h5> Dubai, U.A.E</h5>
+                                        <h5> Required No: 10</h5>   
+                                            <h5>Salary: AED 1500 per month</h5> 
+                                            <p>
+                                                This position will require facilitating the physical and time consuming aspects of storekeeping that allows the Storekeeper space to facilitate proper administration.
+                                            </p>
+
+                                            <p>
+                                                All candidates will have strong organization skills, ability to work effectively in a difficult environment and be flexible in demanding situations. You will have proficiency in English and good interpersonal and team working skills. Your commitment to the values including gender equity in all that we do is essential.   
+                                            </p>
+
+                                             <span class="input-group-btn">
+                                                <button class="btn btn-danger" type="button">Apply NOW</button>
+                                            </span>
+
+
+                        </div> <!-- end of asialink_1 -->        
+                    </div> <!-- end of row -->        
+
+
+                <!-- ############# 3RD ROW ############ -->
+                    <div class="row">
+                        <div class="asialink_hotjobs1">
+                            <i class="fa fa-star fa-2x"></i> <i class="fa fa-star fa-2x"></i>
+
+                            <h4>Cleaners</h4>
+                                <h5> Dolphin Facilities</h5>
+                                    <h5> Doha, Qatar</h5>
+                                        <h5> Required No: 10</h5>   
+                                            <h5>Salary: AED 1500 per month</h5> 
+                                            <p>
+                                                This position will require facilitating the physical and time consuming aspects of storekeeping that allows the Storekeeper space to facilitate proper administration.
+                                            </p>
+
+                                            <p>
+                                                All candidates will have strong organization skills, ability to work effectively in a difficult environment and be flexible in demanding situations. You will have proficiency in English and good interpersonal and team working skills. Your commitment to the values including gender equity in all that we do is essential.   
+                                            </p>
+
+                                             <span class="input-group-btn">
+                                                <button class="btn btn-danger" type="button">Apply NOW</button>
+                                            </span>
+
+
+                        </div> <!-- end of asialink_1 -->        
+                    </div> --}}<!-- end of row -->
+
+
+                </div> <!-- end of asialink_documentation -->    
+            </div> <!-- end of col-sm7 -->
+
+            <div class="col-sm-5">
+                <div class="asialink_hotjobsimg">
+                    <img class="img-responsive" src="{{ URL::asset('images/security.png') }}" alt="Asia Link Services" />
+
                 </div>
-                <div class="col-sm-6">
-                    <ul class="breadcrumb pull-right">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active">Demands</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section><!--/#title--> 
 
-    <section id="portfolio" class="container">
-        <ul class="portfolio-filter">
-            <li><a class="btn btn-default active" href="#" data-filter="*">All</a></li>
-          <!--  <li><a class="btn btn-default" href="#" data-filter=".bootstrap">Licenses</a></li> -->
-            <li><a class="btn btn-default" href="#" data-filter=".html">Demands</a></li>
-        <!--    <li><a class="btn btn-default" href="#" data-filter=".wordpress">Wordpress</a></li> -->
-        </ul><!--/#portfolio-filter-->
+                <div class="asialink_hotjobsimgtext">
+                    <h4>
 
-        <ul class="portfolio-items col-3">
+                        Research indicates that Nepalese employees have three prime needs: Interesting work, recognition for doing a good job, and being let in on things that are going on in the company.
+                     </h4>
 
-            <!--
-            <li class="portfolio-item apps">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/thumb/item5.jpg') }}" alt="">
-                    <h5>Black Eagle Technical Services LLC</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/licensefull/item5.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>             
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
-            
-            <li class="portfolio-item joomla html bootstrap">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item6.jpg') }}" alt="">
-                    <h5>Elite Security, Abu Dhabi, U.A.E</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item6.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
+                </div>  <!-- end of asialink_hotjobsimg text -->    
+
+            </div> <!-- end of col-sm-5 -->    
 
 
-             <li class="portfolio-item joomla html bootstrap">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item7.jpg') }}" alt="">
-                    <h5>Emirates Transport, Abu Dhabi, U.A.E</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item7.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
-
-              <li class="portfolio-item joomla html bootstrap">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item8.jpg') }}" alt="">
-                    <h5>Innovations Building Maintennca LLC, Dubai, U.A.E</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item8.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
-            
-            <li class="portfolio-item joomla html bootstrap">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item9.jpg') }}" alt="">
-                    <h5>Dubai Royal Palace Hospitality LLC, Dubai, U.A.E</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item9.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
-
-            <li class="portfolio-item joomla html bootstrap">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/demandsthumb/item10.jpg') }}" alt="">
-                    <h5>Avari Dubai Hotel, Dubai, U.A.E</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item10.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
-
-             <li class="portfolio-item joomla html bootstrap">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('') }}images/portfolio/demandsthumb/item11.jpg" alt="">
-                    <h5>Emirates Cab, Dubai, U.A.E</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="{{ URL::asset('images/portfolio/demandsfull/item11.jpg') }}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
-
-
-
-
-            <!--
-            <li class="portfolio-item joomla wordpress apps">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/thumb/item4.jpg') }}" alt="">
-                    <h5>Permanent Account Number (PAN)</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/licensefull/item4.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>          
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
-
-            <!--
-            <li class="portfolio-item joomla html">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/thumb/item5.jpg') }}" alt="">
-                    <h5>Lorem ipsum dolor sit amet</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/full/item5.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>          
-                    </div>    
-                </div>       
-            </li><!--/.portfolio-item-->
-
-            <!--
-            <li class="portfolio-item wordpress html">
-                <div class="item-inner">
-                    <img src="{{ URL::asset('images/portfolio/thumb/item6.jpg') }}" alt="">
-                    <h5>Lorem ipsum dolor sit amet</h5>
-                    <div class="overlay">
-                        <a class="preview btn btn-danger" href="images/portfolio/full/item6.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>           
-                    </div>           
-                </div>           
-            </li><!--/.portfolio-item-->
-        </ul> <!-- ### main ul ######## -->
-        
-    </section><!--/#portfolio-->
+    </div> <!-- end of row -->
+      
+       
+    </section><!--/#terms-->
 @endsection
-

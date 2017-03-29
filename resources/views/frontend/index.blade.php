@@ -168,7 +168,9 @@
                                      {{-------------------------------------dynamic hotjobs---------------------------------------------}}
 
                                          @foreach($jobs as $job)
-                                             <li><span>{{  $job->updated_at }}</span><a href="{{ route('hot-jobs') }}">{{ $job->title }}</a></li>
+                                             @if($job->status == "published")
+                                                <li><span>{{  $job->updated_at }}</span><a href="{{ route('hot-jobs') }}">{{ $job->title }}</a></li>
+                                             @endif
                                          @endforeach
 
 
@@ -264,7 +266,9 @@
                             {{------------------------------------Dynamic Content--------------------}}
 
                             @foreach($clients as $client)
-                                <li><img src="{{ URL::asset('client/' . $client->image) }}" width="95" height="73" alt="Maapadma clients"></li>
+                                @if($client->status == "published")
+                                    <li><img src="{{ URL::asset('client/' . $client->image) }}" width="95" height="73" alt="Maapadma clients"></li>
+                                @endif
                             @endforeach
 
                             {{-----------------------------------Static Content-------------------------------------}}

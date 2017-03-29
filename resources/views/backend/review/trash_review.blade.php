@@ -37,8 +37,8 @@
                                 @else
                                     <thead class="text-warning">
                                     <th>name</th>
-                                    <th>view</th>
                                     <th>deleted by</th>
+                                    <th>view</th>
                                     <th>restore</th>
                                     <th>delete</th>
                                     </thead>

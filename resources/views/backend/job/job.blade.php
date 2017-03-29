@@ -63,7 +63,7 @@
                                     @foreach($jobs as $job)
                                         @if($job->status == "published" || $job->status == "unpublished")
                                             <tr>
-                                                <td><a href="{{ route('backend.job.single.job', ['job_id' => $job->id]) }}">{{ $job->title }}</a></td>
+                                                <td><a href="{{ route('backend.job.single.job', ['job_slug' => $job->slug]) }}">{{ $job->title }}</a></td>
                                                 <td><button class="btn-edit"><a href="{{ route('backend.job.get.update', ['job_id' => $job->id]) }}">Edit</a></button></td>
                                                 <td><button class="btn-view"><a href="{{ route('backend.job.single.job', ['job_slug' => $job->slug])  }}">View</a></button></td>
                                                 <td><button class="btn-delete"><a href="{{ route('backend.job.trash', ['job_id' => $job->id]) }}">Delete</a></button></td>

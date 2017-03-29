@@ -38,4 +38,16 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
     {
         return $this->hasMany('App\Application');
     }
+
+    public function demands(){
+        return $this->hasMany('App\Demand');
+    }
+
+    public function companies(){
+        return $this->hasMany('App\Company');
+    }
+
+    public function jobcategories(){
+        return $this->hasMany('App\Jobcategories');
+    }
 }

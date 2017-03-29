@@ -52,8 +52,9 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seeker <i class="icon-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('hot-jobs') }}">Hot Jobs</a></li>
-                            <li><a href="{{ route('apply-online') }}">Apply Online</a></li>
+                            <li><a href="{{ route('hot-jobs') }}">Hot Jobs</a></li>{{--
+                            <li><a href="{{ route('apply-online') }}">Apply Online</a></li>--}}
+                            <li><a href="{{ route('demands') }}">Demands</a></li>
                             <li><a href="{{ route('download') }}">Download Forms</a></li>
                         </ul>
                     </li>

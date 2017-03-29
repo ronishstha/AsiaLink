@@ -33,33 +33,21 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="orange">
-                            <h4 class="title" align="center">{{ ucfirst($job->title) }} | Last modified by: {{ $job->user->name }}</h4>
+                            <h4 class="title" align="center">{{ ucfirst($company->title) }} | Last modified by: {{ $company->user->name }}</h4>
                             <p class="category" align="center">Last updated on
-                                    {{ $job->updated_at }}
+                                    {{ $company->updated_at }}
                             </p>
                         </div>
                         <div class="card-content table-responsive">
-                            <p align="center"><strong>Company:</strong> {{ $job->company }}</p>
-                            <p align="center"><strong>Location:</strong> {{ $job->location }}</p>
-                            <p align="center"><strong>Country:</strong> {{ $job->country }}</p>
-                            <p align="center"><strong>Required No:</strong> {{ $job->required_no }}</p>
-                            <p align="center"><strong>Salary:</strong> {{ $job->salary }}</p>
-                            <p align="center"><strong>Requirement</strong></p>
-                            <p align="center">{!! $job->requirement  !!}</p>
-
-                            @if(!empty($job->description))
+                            <p align="center"><strong>Location:</strong> {{ $company->location }}</p>
+                            <p align="center"><strong>Country:</strong> {{ $company->country }}
+                            @if(!empty($company->description))
                             <p align="center"><strong>Description</strong></p>
-                            <p align="center">{!! $job->description  !!}</p>
+                            <p align="center">{!! $company->description  !!}</p>
                             @endif
-
-
-                            @if(!empty($job->image))
-                            <img src=" {{ URL::asset('jobs/' .$job->image) }}">
-                            @endif
-
                             <div class="single-button">
-                            <button class="btn-edit"><a href="{{ route('backend.job.get.update', ['job_id' => $job->id]) }}">Edit</a></button>
-                            <button class="btn-delete"><a href="{{ route('backend.job.trash', ['job_id' => $job->id]) }}">Delete</a></button>
+                            <button class="btn-edit"><a href="{{ route('backend.company.get.update', ['company_id' => $company->id]) }}">Edit</a></button>
+                            <button class="btn-delete"><a href="{{ route('backend.company.trash', ['company_id' => $company->id]) }}">Delete</a></button>
                             </div>
                         </div>
                     </div>

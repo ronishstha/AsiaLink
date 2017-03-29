@@ -33,33 +33,27 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="orange">
-                            <h4 class="title" align="center">{{ ucfirst($job->title) }} | Last modified by: {{ $job->user->name }}</h4>
+                            <h4 class="title" align="center">{{ ucfirst($demand->title) }} | Last modified by: {{ $demand->user->name }}</h4>
                             <p class="category" align="center">Last updated on
-                                    {{ $job->updated_at }}
+                                    {{ $demand->updated_at }}
                             </p>
                         </div>
                         <div class="card-content table-responsive">
-                            <p align="center"><strong>Company:</strong> {{ $job->company }}</p>
-                            <p align="center"><strong>Location:</strong> {{ $job->location }}</p>
-                            <p align="center"><strong>Country:</strong> {{ $job->country }}</p>
-                            <p align="center"><strong>Required No:</strong> {{ $job->required_no }}</p>
-                            <p align="center"><strong>Salary:</strong> {{ $job->salary }}</p>
-                            <p align="center"><strong>Requirement</strong></p>
-                            <p align="center">{!! $job->requirement  !!}</p>
+                            <p align="center"><strong>Company:</strong> {{ $demand->company->title }}</p>
+                            <p align="center"><strong>Location:</strong> {{ $demand->company->location }}</p>
+                            <p align="center"><strong>Country:</strong> {{ $demand->company->country }}</p>
+                            <p align="center"><strong>Job Category:</strong> {{ $demand->jobcategory->title }}</p>
+                            <p align="center"><strong>Required No:</strong> {{ $demand->required_no }}</p>
+                            <p align="center"><strong>Salary:</strong> {{ $demand->salary }}</p>
 
-                            @if(!empty($job->description))
+                            @if(!empty($demand->description))
                             <p align="center"><strong>Description</strong></p>
-                            <p align="center">{!! $job->description  !!}</p>
-                            @endif
-
-
-                            @if(!empty($job->image))
-                            <img src=" {{ URL::asset('jobs/' .$job->image) }}">
+                            <p align="center">{!! $demand->description  !!}</p>
                             @endif
 
                             <div class="single-button">
-                            <button class="btn-edit"><a href="{{ route('backend.job.get.update', ['job_id' => $job->id]) }}">Edit</a></button>
-                            <button class="btn-delete"><a href="{{ route('backend.job.trash', ['job_id' => $job->id]) }}">Delete</a></button>
+                            <button class="btn-edit"><a href="{{ route('backend.demand.get.update', ['demand_id' => $demand->id]) }}">Edit</a></button>
+                            <button class="btn-delete"><a href="{{ route('backend.demand.trash', ['demand_id' => $demand->id]) }}">Delete</a></button>
                             </div>
                         </div>
                     </div>

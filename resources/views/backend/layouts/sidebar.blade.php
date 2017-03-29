@@ -28,8 +28,8 @@
             </li>
             <li {{ Request::is('job*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.job') }}">
-                <i class="material-icons">comment</i>
-                <p>Job</p>
+                <i class="material-icons">directions_run</i>
+                <p>Hot Jobs</p>
                 </a>
             </li>
             <li {{ Request::is('client*') ? 'class=active' : ''}}>
@@ -40,14 +40,35 @@
             </li>
             <li {{ Request::is('review*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.review') }}">
-                    <i class="material-icons">comment</i>
+                    <i class="material-icons">rate_review</i>
                     <p>Review</p>
                 </a>
             </li>
             <li {{ Request::is('application*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.application') }}">
-                    <i class="material-icons">comment</i>
+                    <i class="material-icons">receipt</i>
                     <p>Application</p>
+                </a>
+            </li>
+
+            <li {{ Request::is('company*') ? 'class=active' : ''}}>
+                <a href="{{ route('backend.company') }}">
+                    <i class="material-icons">weekend</i>
+                    <p>Company</p>
+                </a>
+            </li>
+
+            <li {{ Request::is('jobcategory*') ? 'class=active' : ''}}>
+                <a href="{{ route('backend.jobcategory') }}">
+                    <i class="material-icons">transfer_within_a_station</i>
+                    <p>Job Category</p>
+                </a>
+            </li>
+
+            <li {{ Request::is('demand*') ? 'class=active' : ''}}>
+                <a href="{{ route('backend.demand') }}">
+                    <i class="material-icons">transfer_within_a_station</i>
+                    <p>Demand</p>
                 </a>
             </li>
 

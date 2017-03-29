@@ -37,9 +37,8 @@
                                 @else
                                     <thead class="text-warning">
                                     <th>title</th>
-                                    <th>application_form</th>
-                                    <th>view</th>
                                     <th>deleted by</th>
+                                    <th>view</th>
                                     <th>restore</th>
                                     <th>delete</th>
                                     </thead>
@@ -50,7 +49,6 @@
                                             <tr>
                                                 <td>{{ $application->title }}</td>
                                                 <td>{{ $application->user->name }}</td>
-                                                <td>application_form.pdf</td>
                                                 <td><button class="btn-view"><a href="{{ route('backend.application.single.application', ['application_slug' => $application->slug]) }}">View</a></button></td>
                                                 <td><button class="btn-edit"><a href="{{ route('backend.application.restore', ['application_id' => $application->id]) }}">Restore</a></button></td>
                                                 <td><button class="btn-delete"><a href="{{ route('backend.application.delete', ['application_id' => $application->id]) }}">Delete</a></button></td>

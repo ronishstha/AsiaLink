@@ -24,7 +24,9 @@
                                     <p>No Application Form Available</p>
                                 @endif
                                 @foreach($applications as $application)
-                                <li> <a href="{{ URL::asset($application->form) }}">{{ $application->title }}</a> </li>
+                                    @if ($application->status == "published")
+                                        <li><a href="{{ URL::asset($application->form) }}">{{ $application->title }}</a> </li>
+                                    @endif
                                 @endforeach
                             </ul>
                 </div> <!-- end of asialink_downloadforms -->            

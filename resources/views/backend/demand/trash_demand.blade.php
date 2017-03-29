@@ -16,7 +16,7 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="orange">
-                            <h4 class="title">Banner Trash</h4>
+                            <h4 class="title">Demand Trash</h4>
                             <p class="category"></p>
                         </div>
                         <div class="card-content table-responsive">
@@ -25,9 +25,9 @@
                                     $count = 0;
                                     $i = 0;
                                 @endphp
-                                @foreach($banners as $banner)
+                                @foreach($demands as $demand)
                                     @php
-                                        if($banner->status == "trash"){
+                                        if($demand->status == "trash"){
                                             $i += 1;
                                     }
                                     @endphp
@@ -43,15 +43,15 @@
                                     <th>delete</th>
                                     </thead>
 
-                                    @foreach($banners as $banner)
-                                        @if($banner->status == "trash")
+                                    @foreach($demands as $demand)
+                                        @if($demand->status == "trash")
                                             <tbody>
                                             <tr>
-                                                <td>{{ $banner->title }}</td>
-                                                <td>{{ $banner->user->name }}</td>
-                                                <td><button class="btn-view"><a href="{{ route('backend.banner.single.banner', ['banner_slug' => $banner->slug]) }}">View</a></button></td>
-                                                <td><button class="btn-edit"><a href="{{ route('backend.banner.restore', ['banner_id' => $banner->id]) }}">Restore</a></button></td>
-                                                <td><button class="btn-delete"><a href="{{ route('backend.banner.delete', ['banner_id' => $banner->id]) }}">Delete</a></button></td>
+                                                <td>{{ $demand->title }}</td>
+                                                <td>{{ $demand->user->name }}</td>
+                                                <td><button class="btn-view"><a href="{{ route('backend.demand.single.demand', ['demand_slug' => $demand->slug]) }}">View</a></button></td>
+                                                <td><button class="btn-edit"><a href="{{ route('backend.demand.restore', ['demand_id' => $demand->id]) }}">Restore</a></button></td>
+                                                <td><button class="btn-delete"><a href="{{ route('backend.demand.delete', ['demand_id' => $demand->id]) }}">Delete</a></button></td>
                                             </tr>
                                             </tbody>
                                         @endif

@@ -23,23 +23,23 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header" data-background-color="purple">
-                            <h4 class="title">Banners</h4>
+                            <h4 class="title">Company</h4>
                             <p class="category"></p>
                         </div>
 
                         <div class="card-content table-responsive">
                             <i class="material-icons create">note_add</i>
-                            <a href="{{ route('backend.banner.get.create') }}">Create Banner</a>
-                            <a href="{{ route('backend.banner.delete.page') }}">
+                            <a href="{{ route('backend.company.get.create') }}">Create Company</a>
+                            <a href="{{ route('backend.company.delete.page') }}">
                                 <i class="material-icons delete">delete
                                     @php
-                                        $count = count($banners);
+                                        $count = count($companies);
                                         $i = 0;
                                     @endphp
-                                    @foreach($banners as $banner)
+                                    @foreach($companies as $company)
                                         @php
 
-                                            if($banner->status == "trash"){
+                                            if($company->status == "trash"){
                                                 $i += 1;
                                         }
                                         @endphp
@@ -49,8 +49,8 @@
                                     @endif
                                 </i>
                             </a>
-                            @if(count($banners) == 0 || $count == $i)
-                                <br><p align="center">No banner available<p>
+                            @if(count($companies) == 0 || $count == $i)
+                                <br><p align="center">No company available<p>
                             @else
                                 <table class="table">
                                     <thead class="text-primary">
@@ -60,13 +60,13 @@
                                     <th>Delete</th>
                                     </thead>
                                     <tbody>
-                                    @foreach($banners as $banner)
-                                        @if($banner->status == "published" || $banner->status == "unpublished")
+                                    @foreach($companies as $company)
+                                        @if($company->status == "published" || $company->status == "unpublished")
                                             <tr>
-                                                <td><a href="{{ route('backend.banner.single.banner', ['banner_slug' => $banner->slug]) }}">{{ $banner->title }}</a></td>
-                                                <td><button class="btn-edit"><a href="{{ route('backend.banner.get.update', ['banner_id' => $banner->id]) }}">Edit</a></button></td>
-                                                <td><button class="btn-view"><a href="{{ route('backend.banner.single.banner', ['banner_slug' => $banner->slug])  }}">View</a></button></td>
-                                                <td><button class="btn-delete"><a href="{{ route('backend.banner.trash', ['banner_id' => $banner->id]) }}">Delete</a></button></td>
+                                                <td><a href="{{ route('backend.company.single.company', ['company_slug' => $company->slug]) }}">{{ $company->title }}</a></td>
+                                                <td><button class="btn-edit"><a href="{{ route('backend.company.get.update', ['company_id' => $company->id]) }}">Edit</a></button></td>
+                                                <td><button class="btn-view"><a href="{{ route('backend.company.single.company', ['company_slug' => $company->slug])  }}">View</a></button></td>
+                                                <td><button class="btn-delete"><a href="{{ route('backend.company.trash', ['company_id' => $company->id]) }}">Delete</a></button></td>
                                             </tr>
                                         @endif
                                     @endforeach
@@ -74,14 +74,14 @@
 
                                 </table>
                             @endif
-                            {!! $banners->links() !!}
+                            {!! $companies->links() !!}
                             {{--<div class="pagination">--}}
 
-                                {{--@if($banners->currentPage() !== 1)
-                                    <a href ="{{ $banners->previousPageUrl() }}" class="paginate"><span class="fa fa-caret-left"></span></a>
+                                {{--@if($companies->currentPage() !== 1)
+                                    <a href ="{{ $companies->previousPageUrl() }}" class="paginate"><span class="fa fa-caret-left"></span></a>
                                 @endif
-                                @if($banners->currentPage() !== $banners->lastPage() && $banners->hasPages())
-                                    <a href ="{{ $banners->nextPageUrl()}}"  class="paginate"><span class="fa fa-caret-right"></span></a>
+                                @if($companies->currentPage() !== $companies->lastPage() && $companies->hasPages())
+                                    <a href ="{{ $companies->nextPageUrl()}}"  class="paginate"><span class="fa fa-caret-right"></span></a>
                                     @endif--}}
                             </div>
 

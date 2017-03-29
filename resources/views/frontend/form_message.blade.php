@@ -4,13 +4,14 @@
         font-size: 13px;
     }
 </style>
-<h2>New Online Form has been received from {{ $first_name }} {{ $last_name }} for the job {{ $job }}.</h2>
+<h2>New Online Form has been received from {{ $first_name }} {{ $last_name }}.</h2>
 <{{ $email }}>
 <h3>Contact Info</h3>
 <p><strong>Mobile Number:</strong> {{ $mobile }}</p>
 <p><strong>Contact Email:</strong> {{ $email }}</p>
-
 <h3>Details</h3>
+<p><strong>Company:</strong> {{ $company }}</p>
+<p><strong>Job Applied For:</strong> {{ $jobcategory }}, {{ $demand }}</p>
 <p><strong>First Name:</strong> {{ $first_name }}</p>
 
 <p><strong>Middle Name:</strong> {{ $middle_name }}</p>
@@ -77,4 +78,9 @@
 <p><strong>Malay Reading:</strong> {{ $malay_reading }}</p>
 <p><strong>Hindi Speaking:</strong> {{ $hindi_speaking }}</p>
 <p><strong>Hindi Reading:</strong> {{ $hindi_reading }}</p>
+<p><strong>Nepali Speaking:</strong> {{ $nepali_speaking }}</p>
+<p><strong>Nepali Reading:</strong> {{ $nepali_reading }}</p>
+<p><strong>Arabic Speaking:</strong> {{ $arabic_speaking }}</p>
+<p><strong>Arabic Reading:</strong> {{ $arabic_reading }}</p>
+<p><strong>Other Language:</strong> {{ $other_language }}</p>
 
