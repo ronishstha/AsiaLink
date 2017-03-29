@@ -17,11 +17,15 @@ class CreateJobsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title');
+            $table->string('company');
             $table->string('location');
             $table->string('country');
+            $table->string('image')->nullable();
             $table->string('required_no');
             $table->string('salary');
-            $table->text('description');
+            $table->string('slug');
+            $table->text('requirement');
+            $table->text('description')->nullable();
             $table->enum('status', ['published', 'unpublished', 'trash'])->default('published');
             $table->string('user_id');
         });

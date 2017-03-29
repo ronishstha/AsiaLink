@@ -15,34 +15,6 @@
             background: #fff;
             border: 1px solid #ccc;
         }
-        .overall{
-            margin-left: 130px;
-        }
-        .star-rating{
-            margin: 0 auto;
-            width: 75%;
-        }
-        .star{
-            color: #ccc;
-            cursor: pointer;
-            transition: all 0.2s linear;
-            /*margin-left: -30px;*/
-        }
-        .star:first-of-type{
-            /*margin-left: 30px;*/
-        }
-        .star-checked{
-            color: gold;
-        }
-        .star-checked1{
-            color: gold;
-        }
-        b.r{
-            color: red;
-        }
-        b.g{
-            color: green;
-        }
     </style>
     @if(count($errors) > 0)
         <section class="info-box fail">
@@ -73,18 +45,9 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="">
-                                            <label id="fileupload-example-3-label" for="fileupload-example-3">Image</label>
-                                            <input type="file" id="fileupload-example-3" name="image" value="{{ Request::old('image')}}"/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group label-floating">
-                                            <label class="control-label">Description</label>
+                                            <label>Description</label>
                                             <textarea row=20 class="form-control" name="description" id="description">{{ Request::old('description') }}</textarea>
                                         </div>
                                     </div>

@@ -25,18 +25,19 @@ class BannerController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'image' => 'required',
-            'description' => 'required',
+            'description1' => 'required',
         ]);
 
         $banner = new Banner();
         $file = $request->file('image');
-        $uploadPath = storage_path() . '/app';
+        $uploadPath = public_path() . '/banner';
         $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
         $file->move($uploadPath, $fileName);
         $banner->image = $fileName;
         $slug = $request['title'];
         $banner->title = $request['title'];
-        $banner->description = $request['description'];
+        $banner->description1 = $request['description1'];
+        $banner->description2 = $request['description2'];
         $banner->slug = str_slug($slug,'-');
         $banner->status = $request['status'];
         $user = Auth::user();
@@ -54,16 +55,16 @@ class BannerController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'image' => 'required',
-            'description' => 'required'
+            'description1' => 'required'
         ]);
         $banner = Banner::findOrFail($request['banner_id']);
         $old = $banner->image;
         $file = $request->file('image');
         if($request->hasFile('image')){
             if(!empty($banner->image)){
-                unlink(storage_path() . "\\app\\" . $banner->image);
+                unlink(public_path() . "\\banner\\" . $banner->image);
             }
-            $uploadPath = storage_path() . '/app/banner';
+            $uploadPath = public_path() . '/banner';
             $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
             $file->move($uploadPath, $fileName);
             $banner->image = $fileName;
@@ -72,7 +73,8 @@ class BannerController extends Controller
         }
         $slug = $request['title'];
         $banner->title = $request['title'];
-        $banner->description = $request['description'];
+        $banner->description1 = $request['description1'];
+        $banner->description2 = $request['description2'];
         $banner->slug = str_slug($slug,'-');
         $banner->status = $request['status'];
         $user = Auth::user();
@@ -83,7 +85,7 @@ class BannerController extends Controller
 
     public function getDelete($banner_id){
         $banner = Banner::findOrFail($banner_id);
-        unlink(storage_path() . "\\app\\banner" . $banner->image);
+        unlink(public_path() . "\\banner\\" . $banner->image);
         $banner->delete();
         return redirect()->route('backend.banner.delete.page')->with(['success' => 'Successfully deleted']);
     }
@@ -112,10 +114,5 @@ class BannerController extends Controller
         $banner->status = "published";
         $banner->update();
         return redirect()->route('backend.banner');
-    }
-
-    public function getImage($filename){
-        $file = Storage::disk('local')->get($filename);
-        return new Response($file, 200);
     }
 }

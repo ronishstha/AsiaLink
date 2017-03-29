@@ -14,12 +14,6 @@
 
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li {{ Request::is('/') ? 'class=active' : '' }}>
-                <a href="{{ route('backend.dashboard') }}">
-                    <i class="material-icons">dashboard</i>
-                    <p>Dashboard</p>
-                </a>
-            </li>
             <li {{ Request::is('pages*') ? 'class=active' : '' }}>
                 <a href="{{ route('backend.pages') }}">
                     <i class="material-icons">content_paste</i>
@@ -32,24 +26,52 @@
                     <p>Banner</p>
                 </a>
             </li>
-            <li {{ Request::is('job') ? 'class=active' : ''}}>
+            <li {{ Request::is('job*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.job') }}">
-                <i class="material-icons">comment</i>
-                <p>Job</p>
+                <i class="material-icons">directions_run</i>
+                <p>Hot Jobs</p>
                 </a>
             </li>
-            <li {{ Request::is('client') ? 'class=active' : ''}}>
+            <li {{ Request::is('client*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.client') }}">
                     <i class="material-icons">comment</i>
                     <p>Client</p>
                 </a>
             </li>
-            <li {{ Request::is('review') ? 'class=active' : ''}}>
+            <li {{ Request::is('review*') ? 'class=active' : ''}}>
                 <a href="{{ route('backend.review') }}">
-                    <i class="material-icons">comment</i>
+                    <i class="material-icons">rate_review</i>
                     <p>Review</p>
                 </a>
             </li>
+            <li {{ Request::is('application*') ? 'class=active' : ''}}>
+                <a href="{{ route('backend.application') }}">
+                    <i class="material-icons">receipt</i>
+                    <p>Application</p>
+                </a>
+            </li>
+
+            <li {{ Request::is('company*') ? 'class=active' : ''}}>
+                <a href="{{ route('backend.company') }}">
+                    <i class="material-icons">weekend</i>
+                    <p>Company</p>
+                </a>
+            </li>
+
+            <li {{ Request::is('jobcategory*') ? 'class=active' : ''}}>
+                <a href="{{ route('backend.jobcategory') }}">
+                    <i class="material-icons">transfer_within_a_station</i>
+                    <p>Job Category</p>
+                </a>
+            </li>
+
+            <li {{ Request::is('demand*') ? 'class=active' : ''}}>
+                <a href="{{ route('backend.demand') }}">
+                    <i class="material-icons">transfer_within_a_station</i>
+                    <p>Demand</p>
+                </a>
+            </li>
+
         </ul>
     </div>
 </div>
@@ -67,43 +89,16 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">dashboard</i>
-                            <p class="hidden-lg hidden-md">Dashboard</p>
+                    @if(Auth::check())
+                        <li>
+                            <a href="{{ route('admin.logout') }}"><strong>Log out</strong></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('backend.changepassword') }}"><strong>Change Password</strong></a>
                         </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">notifications</i>
-                            <span class="notification">5</span>
-                            <p class="hidden-lg hidden-md">Notifications</p>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Mike John responded to your email</a></li>
-                            <li><a href="#">You have 5 new tasks</a></li>
-                            <li><a href="#">You're now friend with Andrew</a></li>
-                            <li><a href="#">Another Notification</a></li>
-                            <li><a href="#">Another One</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="material-icons">person</i>
-                            <p class="hidden-lg hidden-md">Profile</p>
-                        </a>
-                    </li>
+                        </li>
+                    @endif
                 </ul>
-
-                <form class="navbar-form navbar-right" role="search">
-                    <div class="form-group  is-empty">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <span class="material-input"></span>
-                    </div>
-                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                        <i class="material-icons">search</i><div class="ripple-container"></div>
-                    </button>
-                </form>
             </div>
         </div>
     </nav>

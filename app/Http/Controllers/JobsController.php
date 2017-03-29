@@ -24,22 +24,30 @@ class JobsController extends Controller
     public function postCreateJob(Request $request){
         $this->validate($request, [
             'title' => 'required',
-            'image' => 'required',
-            'description' => 'required',
+            'company' => 'required',
+            'salary' => 'required',
+            'location' => 'required',
+            'country' => 'required',
+            'requirement' => 'required',
+            'required_no' => 'required'
         ]);
 
         $job = new Job();
-        $file = $request->file('image');
-        $uploadPath = storage_path() . '/app';
-        $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
-        $file->move($uploadPath, $fileName);
-        $job->image = $fileName;
+        if(!empty($request->file('image'))){
+            $file = $request->file('image');
+            $uploadPath = public_path() . '/jobs';
+            $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
+            $file->move($uploadPath, $fileName);
+            $job->image = $fileName;
+        }
         $slug = $request['title'];
         $job->title = $request['title'];
-        $job->title = $request['location'];
-        $job->title = $request['country'];
-        $job->title = $request['required_no'];
-        $job->title = $request['salary'];
+        $job->company = $request['company'];
+        $job->location = $request['location'];
+        $job->country = $request['country'];
+        $job->required_no = $request['required_no'];
+        $job->salary = $request['salary'];
+        $job->requirement = $request['requirement'];
         $job->description = $request['description'];
         $job->slug = str_slug($slug,'-');
         $job->status = $request['status'];
@@ -57,17 +65,21 @@ class JobsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'image' => 'required',
-            'description' => 'required'
+            'company' => 'required',
+            'salary' => 'required',
+            'location' => 'required',
+            'country' => 'required',
+            'requirement' => 'required',
+            'required_no' => 'required'
         ]);
         $job = Job::findOrFail($request['job_id']);
         $old = $job->image;
         $file = $request->file('image');
         if($request->hasFile('image')){
             if(!empty($job->image)){
-                unlink(storage_path() . "\\app\\" . $job->image);
+                unlink(public_path() . "\\jobs\\" . $job->image);
             }
-            $uploadPath = storage_path() . '/app';
+            $uploadPath = public_path() . '/jobs';
             $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
             $file->move($uploadPath, $fileName);
             $job->image = $fileName;
@@ -76,6 +88,12 @@ class JobsController extends Controller
         }
         $slug = $request['title'];
         $job->title = $request['title'];
+        $job->company = $request['company'];
+        $job->location = $request['location'];
+        $job->country = $request['country'];
+        $job->required_no = $request['required_no'];
+        $job->salary = $request['salary'];
+        $job->requirement = $request['requirement'];
         $job->description = $request['description'];
         $job->slug = str_slug($slug,'-');
         $job->status = $request['status'];
@@ -87,7 +105,7 @@ class JobsController extends Controller
 
     public function getDelete($job_id){
         $job = Job::findOrFail($job_id);
-        unlink(storage_path() . "\\app\\job" . $job->image);
+        unlink(public_path() . "\\jobs\\" . $job->image);
         $job->delete();
         return redirect()->route('backend.job.delete.page')->with(['success' => 'Successfully deleted']);
     }
@@ -116,10 +134,5 @@ class JobsController extends Controller
         $job->status = "published";
         $job->update();
         return redirect()->route('backend.job');
-    }
-
-    public function getImage($filename){
-        $file = Storage::disk('local')->get($filename);
-        return new Response($file, 200);
     }
 }

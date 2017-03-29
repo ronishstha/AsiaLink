@@ -5,6 +5,13 @@
 @endsection
 
 @section('content')
+    @if(count($errors) > 0)
+        <section class="info-box fail">
+            @foreach($errors->all() as $error)
+                {{ $error }}
+            @endforeach
+        </section>
+    @endif
     <style>
         #fileupload-example-3::-webkit-file-upload-button {
             color: gray;

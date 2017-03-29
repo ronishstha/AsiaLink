@@ -39,15 +39,22 @@
                             </p>
                         </div>
                         <div class="card-content table-responsive">
-                            <p align="center">{!! $job->description  !!}</p>
+                            <p align="center"><strong>Company:</strong> {{ $job->company }}</p>
+                            <p align="center"><strong>Location:</strong> {{ $job->location }}</p>
+                            <p align="center"><strong>Country:</strong> {{ $job->country }}</p>
+                            <p align="center"><strong>Required No:</strong> {{ $job->required_no }}</p>
+                            <p align="center"><strong>Salary:</strong> {{ $job->salary }}</p>
+                            <p align="center"><strong>Requirement</strong></p>
+                            <p align="center">{!! $job->requirement  !!}</p>
 
-                            @if(Storage::disk('job')->has($job->image))
-                                <section class="row">
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <img src="{{ route('backend.job.image', ['filename' => $job->image]) }}" alt="" class="img-responsive" style="border-radius: 2px;">
-                                    </div>
-                                </section>
-                                <br>
+                            @if(!empty($job->description))
+                            <p align="center"><strong>Description</strong></p>
+                            <p align="center">{!! $job->description  !!}</p>
+                            @endif
+
+
+                            @if(!empty($job->image))
+                            <img src=" {{ URL::asset('jobs/' .$job->image) }}">
                             @endif
 
                             <div class="single-button">

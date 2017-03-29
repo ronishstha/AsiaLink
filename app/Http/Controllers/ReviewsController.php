@@ -34,9 +34,7 @@ class ReviewsController extends Controller
         $review->slug = str_slug($slug,'-');
         $review->status = $request['status'];
         $user = Auth::user();
-        $review->user()->associate($user);;
-        $review->save();
-
+        $user->reviews()->save($review);
         return redirect()->route('backend.review')->with(['success' => 'Successfully created']);
     }
 
@@ -96,8 +94,4 @@ class ReviewsController extends Controller
         return redirect()->route('backend.review');
     }
 
-    public function getImage($filename){
-        $file = Storage::disk('local')->get($filename);
-        return new Response($file, 200);
-    }
 }

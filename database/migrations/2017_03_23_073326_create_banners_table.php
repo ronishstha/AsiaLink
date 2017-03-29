@@ -18,7 +18,8 @@ class CreateBannersTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('image');
-            $table->text('description');
+            $table->text('description1');
+            $table->text('description2')->nullable();
             $table->string('slug');
             $table->string('user_id');
             $table->enum('status', ['published', 'unpublished', 'trash'])->default('published');

@@ -39,13 +39,8 @@
                             </p>
                         </div>
                         <div class="card-content table-responsive">
-                            @if(Storage::disk('client')->has($client->image))
-                                <section class="row">
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <img src="{{ route('backend.client.image', ['filename' => $client->image]) }}" alt="" class="img-responsive" style="border-radius: 2px;">
-                                    </div>
-                                </section>
-                                <br>
+                            @if(!empty($client->image))
+                                 <img src="{{ URL::asset('client/' . $client->image) }}" alt="" class="img-responsive" style="border-radius: 2px;">
                             @endif
 
                             <div class="single-button">

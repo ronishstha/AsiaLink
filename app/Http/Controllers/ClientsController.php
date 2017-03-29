@@ -28,7 +28,7 @@ class ClientsController extends Controller
 
         $client = new Client();
         $file = $request->file('image');
-        $uploadPath = storage_path() . '/app';
+        $uploadPath = public_path() . '/client';
         $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
         $file->move($uploadPath, $fileName);
         $client->image = $fileName;
@@ -49,18 +49,16 @@ class ClientsController extends Controller
     public function postUpdate(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
-            'image' => 'required',
-            'description' => 'required'
+            'title' => 'required'
         ]);
         $client = Client::findOrFail($request['client_id']);
         $old = $client->image;
         $file = $request->file('image');
         if($request->hasFile('image')){
             if(!empty($client->image)){
-                unlink(storage_path() . "\\app\\" . $client->image);
+                unlink(public_path() . "\\client\\" . $client->image);
             }
-            $uploadPath = storage_path() . '/app';
+            $uploadPath = public_path() . '/client';
             $fileName = date("Y-m-d-H-i-s") . $file->getClientOriginalName();
             $file->move($uploadPath, $fileName);
             $client->image = $fileName;
@@ -79,7 +77,7 @@ class ClientsController extends Controller
 
     public function getDelete($client_id){
         $client = Client::findOrFail($client_id);
-        unlink(storage_path() . "\\app\\" . $client->image);
+        unlink(public_path() . "\\client\\" . $client->image);
         $client->delete();
         return redirect()->route('backend.client.delete.page')->with(['success' => 'Successfully deleted']);
     }

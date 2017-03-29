@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="{{ URL::asset('/assets/admin.png') }}/" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ URL::asset('assets/img/apple-icon.png') }}" />
+    <link rel="icon" type="image/png" href="{{ URL::asset('assets/admin.png') }}/" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Admin Panel</title>
@@ -39,31 +39,9 @@
         <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
                 </nav>
                 <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Admin Panel</a>
+                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Asia Link</a>
                 </p>
             </div>
         </footer>
@@ -93,12 +71,71 @@
 <script src="/assets/js/demo.js"></script>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    /*$(document).ready(function(){
 
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
 
+    });*/
+    $(document).ready(function(){
+
+        $(document).on('change','.company',function(){
+            /* console.log("hmm its change");*/
+
+            var company_id=$(this).val();
+            // console.log(cat_id);
+            var div=$(this).parent();
+
+            var op=" ";
+
+            $.ajax({
+                type:'get',
+                url:'{!!URL::to('admin/findJobcategoryName')!!}',
+                data:{'id':company_id},
+                success:function(data){
+                    console.log('success');
+
+                    console.log(data);
+                    var length = Object.keys(data).length
+                    console.log(length);
+                    console.log(Object.values(data));
+
+                    for(var i = 0; i < length; i++){
+                        op+='<option value="'+data[i].title+'">'+data[i].title+'</option>';
+                    }
+
+                    $('.jobcategory').html(op);
+
+                    div.find('.jobcategory').html(" ");
+                    div.find('.jobcategory').append(op);
+                },
+                error:function(){
+
+                }
+            });
+        });
     });
+</script>
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+    var options = {
+        filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+        filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+</script>
+<script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
+<script>
+    $('textarea').ckeditor(options);
+</script>
+
+
+<script type="text/javascript">
+
 </script>
 
 </html>

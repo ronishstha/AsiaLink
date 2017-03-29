@@ -55,7 +55,6 @@
                                 <table class="table">
                                     <thead class="text-primary">
                                     <th>Name</th>
-                                    <th>Itinerary</th>
                                     <th>Edit</th>
                                     <th>View</th>
                                     <th>Delete</th>
@@ -65,7 +64,6 @@
                                         @if($review->status == "published" || $review->status == "unpublished")
                                             <tr>
                                                 <td><a href="{{ route('backend.review.single.review', ['review_slug' => $review->slug]) }}">{{ $review->name}}</a></td>
-                                                <td>{{ $review->itinerary->title}}</td>
                                                 <td><button class="btn-edit"><a href="{{ route('backend.review.get.update', ['review_id' => $review->id]) }}">Edit</a></button></td>
                                                 <td><button class="btn-view"><a href="{{ route('backend.review.single.review', ['review_slug' => $review->slug])  }}">View</a></button></td>
                                                 <td><button class="btn-delete"><a href="{{ route('backend.review.trash', ['review_id' => $review->id]) }}">Delete</a></button></td>

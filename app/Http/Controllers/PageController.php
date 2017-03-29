@@ -10,7 +10,7 @@ use App\User;
 class PageController extends Controller
 {
     public function getPage(){
-        $pages = Page::orderBy('created_at', 'desc')->paginate(3);
+        $pages = Page::orderBy('created_at', 'desc')->paginate(5);
 
         if(!$pages){
             return redirect()->route('backend.dashboard')->with(['fail' => 'no pages found']);
